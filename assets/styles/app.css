@@ -1,0 +1,204 @@
+/*GENERAL*/
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+a{
+    text-decoration: none;
+    color: #DDDDDD;
+}
+
+.clear{
+    clear: both;  /* empéche les collision  */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: gray(18);
+}
+
+hr{
+    margin: -200px 290px
+}
+
+/*NAV*/
+
+.navbar {
+    font-size: 18px;
+    background-color: rgb(73, 45, 104);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 10px;
+}
+
+.main-nav {
+    list-style-type: none;
+    display: none;
+}
+
+.nav-links,
+.logo {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+.main-nav li {
+    text-align: center;
+    margin: 15px auto;
+}
+
+.main-nav li:last-child {
+    margin-left: 300px;
+}
+
+.logo {
+    display: inline-block;
+    font-size: 22px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.navbar-toggle {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 24px;
+}
+
+.active {
+    display: block;
+}
+
+@media screen and (min-width: 768px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 0;
+        height: 70px;
+        align-items: center;
+    }
+
+    .main-nav {
+        display: flex;
+        margin-right: 30px;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .active .nav-links:hover {
+        background-color: rgba(247, 243, 243, 0.2);
+    }
+
+    .nav-links {
+        margin-left: 40px;
+    }
+
+    .logo {
+        margin-top: 0;
+    }
+
+    .navbar-toggle {
+        display: none;
+    }
+
+    .logo:hover,
+    .nav-links:hover {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 1);
+
+    }
+}
+
+
+/*HEADER*/
+.shadow{
+    filter: drop-shadow(-1px 6px 6px rgba(0, 0, 0, 0.78));
+}
+
+header {
+    background-image: url("../images/the-quarry-key-art-4k-1647685470.jpg");
+    width: 100vw;
+    height: 70vh;
+    background-size: cover;
+    background-position: top;
+    padding-bottom: 15px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 8em));
+}
+
+/*MAIN*/
+
+.card{
+    margin: 100px 0;
+    background-color: rgb(73, 45, 104);
+    color: white;
+    width: 300px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 20px;
+    height: 350px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+/*SHEARCH*/
+
+.Containerisation{ /*container de la barre de cherche*/
+    display: flex;
+    margin : 0 auto;
+    flex-wrap: wrap;
+}
+
+.Search{
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    font-size: 18px;
+    margin: 0 10px;
+}
+
+.Search input{
+    width: 25%;
+    height: 100%;
+    font-size: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.Search button{
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(73, 45, 104);
+    border-radius: 10px;
+    color: white;
+}
+
+@media screen and (max-width: 868px) {
+    .Search button{
+        display: none;
+    }
+
+    .Search input{
+        width: 50%;
+    }
+}
+
+
+
+/*FOOTER*/
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(73, 45, 104);
+    padding: 10px;
+    text-align: center;
+    color: white;
+
+}
