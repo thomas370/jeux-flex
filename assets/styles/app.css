@@ -18,6 +18,7 @@ a{
 }
 
 body {
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
     background-color: gray(18);
@@ -44,7 +45,7 @@ hr{
 .nav-links,
 .logo {
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgb(197, 181, 216);
 }
 
 
@@ -124,19 +125,31 @@ hr{
 }
 
 header {
-    background-image: url("../images/the-quarry-key-art-4k-1647685470.jpg");
+    background-image: url("../images/1191164.jpg");
     width: 100vw;
-    height: 70vh;
+    height: 100vh;
     background-size: cover;
     background-position: top;
     padding-bottom: 15px;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 8em));
 }
 
+.flex{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.flex h2 {
+    font-size: 3rem;
+    color: rgb(46, 31, 31);
+    margin-left: 20px;
+}
+
 /*MAIN*/
 
 .card{
-    margin: 100px 0;
+    margin: 30px 0;
     background-color: rgb(73, 45, 104);
     color: white;
     width: 300px;

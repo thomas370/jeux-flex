@@ -2,7 +2,6 @@ import React from 'react';
 import Header from './Header';
 import Nav from "./Nav";
 import Footer from "./Footer";
-import Shearch from "./Shearch";
 import Card from "./Card";
 
 
@@ -11,10 +10,9 @@ const Home = () => {
         <div>
             <Nav />
             <Header />
-            <Shearch />
             <div className={"Containerisation"}>
                 <Card />
-                <Card />
+                <Card /> {/*<!--faire un foreatch apres avoir fait le php --> */}
                 <Card />
                 <Card />
             </div>
