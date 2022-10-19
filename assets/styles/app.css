@@ -1,3 +1,6 @@
+/*FONT*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 /*GENERAL*/
 
 * {
@@ -125,25 +128,84 @@ hr{
 }
 
 header {
-    background-image: url("../images/1191164.jpg");
+    background-image: url("../images/thumb-1920-1151767.jpg");
     width: 100vw;
-    height: 100vh;
+    height: 80vh;
     background-size: cover;
     background-position: top;
     padding-bottom: 15px;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 8em));
 }
 
-.flex{
-    display: flex;
+/*FILTER*/
+
+.filter {
+    background-color: rgba(255, 255, 255, 0.5);
     width: 100%;
-    justify-content: space-between;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.flex h2 {
-    font-size: 3rem;
-    color: rgb(46, 31, 31);
-    margin-left: 20px;
+/*Shearch*/
+
+.Shearch{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.151);
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.Shearch input{
+    width: 500px;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+}
+
+.Shearch button{
+    width: 100px;
+    height: 35px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: rgb(117, 90, 148);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.Shearch button:hover{
+    background-color: rgb(73, 45, 104);
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Bebas Neue', cursive;
+}
+
+@media screen and (max-width: 768px) {
+    .Shearch input{
+        width: 150px;
+        height: 35px;
+        border-radius: 10px;
+        border: none;
+    }
+}
+
+.Shearch select{
+    margin-left:10px;
+    width: 150px;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    
 }
 
 /*MAIN*/
@@ -159,50 +221,12 @@ header {
     height: 350px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
-/*SHEARCH*/
 
-.Containerisation{ /*container de la barre de cherche*/
+.Containerisation{ 
     display: flex;
     margin : 0 auto;
     flex-wrap: wrap;
 }
-
-.Search{
-    text-align: center;
-    width: 100%;
-    height: 50px;
-    padding: 10px;
-    font-size: 18px;
-    margin: 0 10px;
-}
-
-.Search input{
-    width: 25%;
-    height: 100%;
-    font-size: 18px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-}
-
-.Search button{
-    padding: 10px;
-    margin: 10px;
-    background-color: rgb(73, 45, 104);
-    border-radius: 10px;
-    color: white;
-}
-
-@media screen and (max-width: 868px) {
-    .Search button{
-        display: none;
-    }
-
-    .Search input{
-        width: 50%;
-    }
-}
-
-
 
 /*FOOTER*/
 footer {

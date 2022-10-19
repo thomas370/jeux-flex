@@ -12,7 +12,7 @@ const Home = () => {
             <Header />
             <div className={"Containerisation"}>
                 <Card />
-                <Card /> {/*<!--faire un foreatch apres avoir fait le php --> */}
+                <Card /> 
                 <Card />
                 <Card />
             </div>
