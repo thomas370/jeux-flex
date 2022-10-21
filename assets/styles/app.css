@@ -45,7 +45,6 @@ hr{
     display: none;
 }
 
-.nav-links,
 .logo {
     text-decoration: none;
     color: rgb(197, 181, 216);
@@ -53,12 +52,14 @@ hr{
 
 
 .main-nav li {
+    color: rgb(197, 181, 216);
     text-align: center;
     margin: 15px auto;
 }
 
 .main-nav li:last-child {
-    margin-left: 300px;
+    color: rgb(197, 181, 216);
+    margin-left: 40px;
 }
 
 .logo {
@@ -114,6 +115,7 @@ hr{
     }
 
     .logo:hover,
+    .main-nav li:last-child,
     .nav-links:hover {
         text-decoration: none;
         color: rgba(255, 255, 255, 1);
@@ -128,7 +130,7 @@ hr{
 }
 
 header {
-    background-image: url("../images/thumb-1920-1151767.jpg");
+    background-image: url("../images/Gotham-Knights-Promo-Image.jpg");
     width: 100vw;
     height: 80vh;
     background-size: cover;
@@ -143,6 +145,7 @@ header {
     background-color: rgba(255, 255, 255, 0.5);
     width: 100%;
     height: 100%;
+    margin-top: 20px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -224,8 +227,58 @@ header {
 
 .Containerisation{ 
     display: flex;
-    margin : 0 auto;
+    margin : 0 auto 30px auto;
     flex-wrap: wrap;
+}
+
+/*BANNER*/
+
+.banner{
+    background-color: rgb(183, 150, 224);
+    width: 100%;
+    height: 20vh;
+    margin-bottom: 300px;
+}
+
+.banner-content {
+    display:flex;
+    text-align: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+}
+
+.banner-content p{
+    text-align: left;
+}
+
+.counter{
+    background-color: rgb(73, 45, 104);
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.commentaire{
+    background-color: rgb(73, 45, 104);
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+@media screen and (max-width: 700px) {
+    .banner,
+    .banner-content{
+        display: none;
+    }
 }
 
 /*FOOTER*/
