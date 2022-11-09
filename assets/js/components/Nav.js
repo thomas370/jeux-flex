@@ -13,7 +13,7 @@ const Nav = () => {
             <a href={"/"} className="logo" >Jeux-Flex</a>
             <ul className="main-nav" id="js-menu">
                 <li><Link className="nav-links" to="/panier"><FontAwesomeIcon icon={faCartShopping} /></Link></li>
-                <li><FontAwesomeIcon icon={faUser} /> </li>
+                <li><Link  to="/loginUser"><FontAwesomeIcon icon={faUser} /></Link></li>
             </ul>
         </nav>
     );

@@ -132,7 +132,7 @@ hr{
 header {
     background-image: url("../images/Gotham-Knights-Promo-Image.jpg");
     width: 100vw;
-    height: 80vh;
+    height: 90vh;
     background-size: cover;
     background-position: top;
     padding-bottom: 15px;
@@ -217,11 +217,11 @@ header {
     margin: 30px 0;
     background-color: rgb(73, 45, 104);
     color: white;
-    width: 300px;
+    width: 350px;
     text-align: center;
     border-radius: 10px;
     font-size: 20px;
-    height: 350px;
+    height: 250px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
@@ -231,59 +231,8 @@ header {
     flex-wrap: wrap;
 }
 
-/*BANNER*/
-
-.banner{
-    background-color: rgb(183, 150, 224);
-    width: 100%;
-    height: 20vh;
-    margin-bottom: 300px;
-}
-
-.banner-content {
-    display:flex;
-    text-align: center;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    align-items: center;
-    height: 100%;
-    padding: 10px;
-}
-
-.banner-content p{
-    text-align: left;
-}
-
-.counter{
-    background-color: rgb(73, 45, 104);
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-.commentaire{
-    background-color: rgb(73, 45, 104);
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-@media screen and (max-width: 700px) {
-    .banner,
-    .banner-content{
-        display: none;
-    }
-}
-
 /*FOOTER*/
 footer {
-    position: fixed;
     bottom: 0;
     width: 100%;
     background-color: rgb(73, 45, 104);
