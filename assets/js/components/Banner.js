@@ -7,7 +7,7 @@ const Banner = () => {
                 <div className="banner-content">
                     <div className="counter">
                         <h2>nombres de jeux disponible</h2>
-                        <h3>100</h3>
+                        <p>100</p>
                     </div>
 
                     <div className="commentaire">
