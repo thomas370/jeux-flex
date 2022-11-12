@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const Crad = () => {
+const Card = () => {
     return (
             <div className={"Containerisation"}>
                 <div className={"card"}>
@@ -17,4 +17,4 @@ const Crad = () => {
     );
 };
 
-export default Crad;
+export default Card;

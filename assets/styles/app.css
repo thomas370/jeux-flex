@@ -132,7 +132,7 @@ hr{
 header {
     background-image: url("../images/Gotham-Knights-Promo-Image.jpg");
     width: 100vw;
-    height: 80vh;
+    height: 90vh;
     background-size: cover;
     background-position: top;
     padding-bottom: 15px;
@@ -214,11 +214,11 @@ header {
     margin: 30px 0;
     background-color: rgb(73, 45, 104);
     color: white;
-    width: 300px;
+    width: 350px;
     text-align: center;
     border-radius: 10px;
     font-size: 20px;
-    height: 350px;
+    height: 250px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
@@ -228,6 +228,7 @@ header {
     flex-wrap: wrap;
 }
 
+<<<<<<< HEAD
 /*BANNER*/
 
 .banner{
@@ -286,9 +287,10 @@ header {
     }
 }
 
+=======
+>>>>>>> 5af46f4881be26c78896f62c3d88903de41b7bca
 /*FOOTER*/
 footer {
-    position: fixed;
     bottom: 0;
     width: 100%;
     background-color: rgb(73, 45, 104);
