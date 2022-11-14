@@ -164,7 +164,7 @@ header {
     font-family: 'Bebas Neue', cursive;
 }
 
-.Shearch input{
+.Shearch input {
     width: 500px;
     height: 35px;
     border-radius: 10px;
@@ -181,6 +181,14 @@ header {
     color: white;
     font-size: 1.5rem;
     font-family: 'Bebas Neue', cursive;
+}
+
+.Shearch_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 20px 0  ;
+
 }
 
 .Shearch button:hover{
@@ -210,11 +218,26 @@ header {
 
 /*MAIN*/
 
+.Containerisation{
+    display: flex;
+    MAX-width: 1380px;
+    margin : 0 auto 30px ;
+    flex-wrap: wrap;
+}
+
+.Cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 10px;
+    flex-direction: column;
+}
+
 .card{
-    margin: 30px 0;
+    margin: 20px 15px 0;
     background-color: rgb(73, 45, 104);
     color: white;
-    width: 350px;
+    width: 400px;
     text-align: center;
     border-radius: 10px;
     font-size: 20px;
@@ -222,73 +245,77 @@ header {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
-.Containerisation{
-    display: flex;
-    margin : 0 auto 30px auto;
-    flex-wrap: wrap;
+.reduc p{
+    position: absolute;
+    margin-top: -10px;
+    margin-left: -5px;
+    padding: 6px 18px;
+    background-color: rgb(73, 45, 104);
+    color: white;
+    border-radius: 10px;
+
 }
 
-<<<<<<< HEAD
+.name_price{
+    display: flex;
+    justify-content: space-between;
+    margin:  0 30px;
+}
+
+.name_price p{
+    margin: 10px 0;
+    font-size: 2em;
+}
+
+.name_price h2{
+    margin: 10px 0;
+    font-size: 2em;
+}
+
+.card img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
 /*BANNER*/
 
 .banner{
-    background-image: url("../images/nuages.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-color: rgb(73, 45, 104);
     width: 100%;
-    height: 20vh;
-    margin-bottom: 300px;
+    height: 50%;
+    text-align: center;
+    padding: 15px;
+    color: white;
+    margin-bottom: 30px;
+    font-size: 2em;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
-.banner-content {
-    display:flex;
-    color: #FFFFFF;
-    text-align: center;
+.banner_text{
+    display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
+}
+
+.banner_text p{
+    margin: -20px 0;
+    font-size: 12px ;
     align-items: center;
-    height: 100%;
-    padding: 10px;
+
 }
 
-.banner-content p{
-    text-align: center;
-    font-size: 1.5rem;
-}
-
-.banner-content h2{
-    text-align: center;
-    font-size: 2rem;
-}
-
-.counter{
-    height: 90%;
+.banner_service{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    border-radius: 10px;
-    padding: 10px;
+    flex-wrap: wrap;
 }
 
-.commentaire{
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 10px;
-    padding: 10px;
+/*LES JEUX LES MOIN CHER*/
+.moin_cher{
+    font-size: 1.5em;
+    margin: 70px 0 0 150px;
 }
 
-@media screen and (max-width: 900px) {
-    .banner,
-    .banner-content{
-        display: none;
-    }
-}
-
-=======
->>>>>>> 5af46f4881be26c78896f62c3d88903de41b7bca
 /*FOOTER*/
 footer {
     bottom: 0;

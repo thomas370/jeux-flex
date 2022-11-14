@@ -1,17 +1,21 @@
 import React from 'react';
 
 
-const Card = () => {
+const Card = ({game}) => {
     return (
+        game &&
             <div className={"Containerisation"}>
-                <div className={"card"}>
-                    <img src={"#"} alt={""}></img>
-                        <h1>Name</h1>
-                        <p>Description</p>
-                        <p>Platform</p>
-                        <p>type de jeux</p>
-                        <p>Réduction</p>
-                        <p>Price</p>
+                <div className={"Cards"}>
+                    <div className={"card"}>
+                        <div className={"reduc"}>
+                            <p>-{game.reduction}%</p>
+                        </div>
+                        <img src={game.images} alt={""}></img>
+                    </div>
+                        <div className={"name_price"}>
+                            <h2>{game.name}</h2>
+                            <p>{game.prix}€</p>
+                        </div>
                 </div>
             </div>
     );
