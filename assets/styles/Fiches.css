@@ -1,0 +1,133 @@
+/*FICHES*/
+.row{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: -250px 0 30px 0;
+}
+
+.row img {
+    z-index: 1;
+    width: 600px;
+    height: 350px;
+    border-radius: 10px;
+    margin: 0 150px 0 0;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.info{
+    color: rgb(255, 255, 255);
+    z-index: 1;
+    width: 600px;
+    height: 350px;
+    background: rgb(56, 56, 56);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.info p{
+    margin: 10px 0;
+    font-size: 1.5em;
+    font-family: 'Ninito', sans-serif;
+    text-align: center;
+}
+
+.info h2{
+    margin: 20px 0;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.plat{
+    margin: 30px 10px 0 10px;
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+    background-color: #1b1e21;
+    border-radius: 10px;
+}
+
+.plat p{
+    padding: 10px;
+    font-size: 1.5em;
+    font-family: Lato, cursive;
+}
+
+.prix{
+    display: flex;
+    justify-content: center;
+}
+
+.prix h4{
+    margin: 20px 0;
+    font-size: 2em;
+    font-family: Lato, cursive;
+}
+
+.prix p{
+    color: rgb(255, 255, 255);
+    margin: 25px 10px 5px 0;
+    font-size: 1.5em;
+    font-family: Lato, cursive;
+}
+
+.btn {
+    display: flex;
+    justify-content: space-around;
+    margin: 35px 0 -15px;
+}
+
+.btn button{
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    margin: 10px;
+    padding: 15px;
+    width: 70px;
+    height: 70px;
+    background-color: rgb(73, 45, 104);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border: none;
+}
+
+.btn button:nth-child(2){
+    font-size: medium;
+    color: rgb(255, 255, 255);
+    margin: 10px;
+    padding: 15px;
+    width: 400px;
+    background-color: rgb(73, 45, 104);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border: none;
+}
+
+
+.description, .video{
+    margin: 0 180px;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5em;
+    justify-content: space-around;
+    width: 50%;
+    font-family: Ninito, sans-serif;
+    font-weight: 500;
+}
+
+.video video {
+    padding: 15px;
+
+}
+
+.description p{
+    line-height: 25px;
+    margin: 10px 0;
+    width: 600px;
+    font-size: 1em;
+}
+
+.description h2{
+    margin: 10px 0;
+    font-size: 1.5em;
+    font-family: Lato, cursive;
+}

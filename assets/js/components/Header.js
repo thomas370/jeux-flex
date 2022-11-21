@@ -1,7 +1,55 @@
-import React from 'react';
-import {Link} from "react-router-dom";
+import React, {useEffect, useState} from 'react';
+import '../../styles/Header.css';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-const Header = () => {
+
+const Header = ({searchResult, games, setGames, setSearchResult}) => {
+    const [search, setSearch] = useState({
+        search: "",
+        price: "",
+        pc: "",
+        genre: "",
+    });
+
+
+    function onChange({currentTarget}) {
+        const {name, value} = currentTarget;
+        setSearch({...search, [name]: value});
+
+    }
+
+    useEffect(() => {
+        console.log(search)
+        if (search.search.length >= 2) {
+            const result = searchResult.filter(game => game.name.includes(search.search));
+            setSearchResult(result)
+        }
+       if (search.price) {
+            const rangeValue = search.price.split('-')
+            const result = searchResult.filter(game => game.prix >= rangeValue[0] && game.prix <= rangeValue[1])
+            setSearchResult(result)
+        }
+
+       if (search.pc) {
+            const result = searchResult.filter(game => game.id_plat?.platform === search.pc)
+            setSearchResult(result)
+        }
+
+       if (search.genre) {
+           const result = searchResult.filter(game => game.id_type?.type === search.genre)
+           setSearchResult(result)
+       }
+
+       if (search.search.length === 0 && search.price === "" && search.pc === "" && search.genre === "") {
+            setSearchResult(games)
+        }
+
+    }, [search])
+
+    useEffect(() => {
+    }, [games])
+
+
     return (
         <div>
             <div className="shadow">
@@ -12,12 +60,15 @@ const Header = () => {
             <div className="filter">
                 <div className='Shearch'>
                     <div className={'Shearch_container'}>
-                    <input type="text" placeholder=" Search..."></input>
-                    <button>Search</button>
+                        <input onChange={(e) => onChange(e)} id='recherche' type="text"
+                               placeholder=" Search..." name="search"></input>
+                        <button>Search</button>
+                        <button>Reset</button>
+
                     </div>
-                <div className="filter_container">
-                        <select name="PC" id="PC-select">
-                            <option value=""> Pc</option>
+                    <div className="filter_container">
+                        <select name="pc" id="PC-select" onChange={onChange}>
+                            <option value="">Platform</option>
                             <option value="Steam">Steam</option>
                             <option value="Battle.net">Battle.net</option>
                             <option value="Ubisoft connect">Ubisoft connect</option>
@@ -25,21 +76,7 @@ const Header = () => {
                             <option value="Rockstar">Rockstar</option>
                             <option value="Epic">Epic</option>
                         </select>
-                        <select name="Playstation" id="Playstation-select">
-                            <option value=""> Playstation</option>
-                            <option value="Playstation-4">Playstation-4</option>
-                            <option value="Playstation-5">Playstation-5</option>
-                        </select>
-                        <select name="Nintendo" id="Nintendo-select">
-                            <option value=""> Nintendo</option>
-                            <option value="Nintendo-switch">Nintendo-switch</option>
-                        </select>
-                        <select name="xbox" id="xbox-select">
-                            <option value=""> xbox</option>
-                            <option value="xbox-one">xbox one</option>
-                            <option value="xbox-serie-s-x">xbox s|x</option>
-                        </select>
-                        <select>
+                        <select name="genre" onChange={onChange}>
                             <option value="">Genre</option>
                             <option value="Action">Action</option>
                             <option value="Aventure">Aventure</option>
@@ -49,7 +86,7 @@ const Header = () => {
                             <option value="Sport">Sport</option>
                             <option value="Stratégie">Stratégie</option>
                         </select>
-                        <select>
+                        <select name='price' onChange={onChange}>
                             <option value="">Prix</option>
                             <option value="0-10">0-10€</option>
                             <option value="10-30">10-30€</option>
@@ -59,7 +96,7 @@ const Header = () => {
                             <option value="100et+">100 et +</option>
                         </select>
                     </div>
-                 </div>
+                </div>
             </div>
         </div>
     );

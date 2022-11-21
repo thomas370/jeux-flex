@@ -1,0 +1,91 @@
+/*NAV*/
+
+.navbar {
+    font-size: 18px;
+    background-color: rgb(73, 45, 104);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 10px;
+}
+
+.main-nav {
+    list-style-type: none;
+    display: none;
+}
+
+.logo {
+    text-decoration: none;
+    color: rgb(197, 181, 216);
+}
+
+
+.main-nav li {
+    color: rgb(197, 181, 216);
+    text-align: center;
+    margin: 15px auto;
+}
+
+.main-nav li:last-child {
+    color: rgb(197, 181, 216);
+    margin-left: 40px;
+}
+
+.logo {
+    display: inline-block;
+    font-size: 22px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.navbar-toggle {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 24px;
+}
+
+.active {
+    display: block;
+}
+
+@media screen and (min-width: 768px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 0;
+        height: 70px;
+        align-items: center;
+    }
+
+    .main-nav {
+        display: flex;
+        margin-right: 30px;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .active .nav-links:hover {
+        background-color: rgba(247, 243, 243, 0.2);
+    }
+
+    .nav-links {
+        margin-left: 40px;
+    }
+
+    .logo {
+        margin-top: 0;
+    }
+
+    .navbar-toggle {
+        display: none;
+    }
+
+    .logo:hover,
+    .main-nav li:last-child,
+    .nav-links:hover {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 1);
+
+    }
+}

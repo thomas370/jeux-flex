@@ -1,15 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import Header from './Header';
 import Nav from "./Nav";
-import Card from "./Card";
 import Banner from "./Banner";
 import Footer from "./Footer";
 import {Link} from "react-router-dom";
 
-
+const Card = React.lazy(() => import('./Card'));
 
 const Home = () => {
     const [games, setGames] = useState([]);
+    const [searchResult, setSearchResult] = useState([]);
+
     const fetchGames = async () => {
         const response = await fetch('http://localhost:8000/api/jeuxes');
         const data = await response.json();
@@ -18,25 +19,25 @@ const Home = () => {
     }
 
     useEffect(() => {fetchGames()}, []);
-    useEffect(() => {console.log(games)}, [games]);
+    useEffect(() => {setSearchResult(games)}, [games]);
 
     return (
         <div>
             <Nav />
-            <Header />
+            <Header searchResult={searchResult} games={games} setGames={setGames} setSearchResult={setSearchResult}/>
             <div className={"Containerisation"}>
-                    {games.map(game =>  <Link to={'/fiches/' + game.id}> <Card key={game.id} game={game} /> </Link>)}
+                    {searchResult.map(game =>  <Link key={game.id} to={'/fiches/' + game.id}> <Card  game={game} /> </Link>)}
             </div>
-            <Banner game={games} />
+            <Banner game={searchResult} />
             <div className={'moin_cher'}>
                 <h2>Les jeux les moin chers</h2>
             </div>
             <div className={"Containerisation"}>
-                {games.sort((a, b) => a.prix - b.prix).slice(0, 6).map(game => <Link to={'/fiches/' + game.id}> <Card game={game} key={game.id} /> </Link>)}
+               {games.sort((a, b) => a.prix - b.prix).slice(0, 6).map(game => <Link key={game.id} to={'/fiches/' + game.id}> <Card game={game}  /> </Link>)}
             </div>
             <Footer />
         </div>
-    );
+    )
 };
 
 export default Home;

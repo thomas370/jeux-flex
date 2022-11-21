@@ -1,5 +1,7 @@
 /*FONT*/
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 /*GENERAL*/
 
@@ -31,290 +33,39 @@ hr{
     margin: -200px 290px
 }
 
-/*NAV*/
 
-.navbar {
-    font-size: 18px;
-    background-color: rgb(73, 45, 104);
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    padding-bottom: 10px;
-}
-
-.main-nav {
-    list-style-type: none;
+.hidden{
     display: none;
 }
-
-.logo {
-    text-decoration: none;
-    color: rgb(197, 181, 216);
-}
-
-
-.main-nav li {
-    color: rgb(197, 181, 216);
-    text-align: center;
-    margin: 15px auto;
-}
-
-.main-nav li:last-child {
-    color: rgb(197, 181, 216);
-    margin-left: 40px;
-}
-
-.logo {
-    display: inline-block;
-    font-size: 22px;
-    margin-top: 10px;
-    margin-left: 20px;
-}
-
-.navbar-toggle {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    cursor: pointer;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 24px;
-}
-
-.active {
-    display: block;
-}
-
-@media screen and (min-width: 768px) {
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        padding-bottom: 0;
-        height: 70px;
-        align-items: center;
-    }
-
-    .main-nav {
-        display: flex;
-        margin-right: 30px;
-        flex-direction: row;
-        justify-content: flex-end;
-    }
-
-    .active .nav-links:hover {
-        background-color: rgba(247, 243, 243, 0.2);
-    }
-
-    .nav-links {
-        margin-left: 40px;
-    }
-
-    .logo {
-        margin-top: 0;
-    }
-
-    .navbar-toggle {
-        display: none;
-    }
-
-    .logo:hover,
-    .main-nav li:last-child,
-    .nav-links:hover {
-        text-decoration: none;
-        color: rgba(255, 255, 255, 1);
-
-    }
-}
-
-
-/*HEADER*/
-.shadow{
-    filter: drop-shadow(-1px 6px 6px rgba(0, 0, 0, 0.78));
-}
-
-header {
-    background-image: url("../images/Gotham-Knights-Promo-Image.jpg");
-    width: 100vw;
-    height: 90vh;
-    background-size: cover;
-    background-position: top;
-    padding-bottom: 15px;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 8em));
-}
-
-/*FILTER*/
-
-.filter {
-    background-color: rgba(255, 255, 255, 0.5);
-    width: 100%;
-    height: 100%;
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-/*Shearch*/
-
-.Shearch{
-    margin: 10px 10px 10px 10px;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.151);
-    border-radius: 5px;
-    padding: 10px;
-    color: white;
-    font-size: 1.5rem;
-    font-family: 'Bebas Neue', cursive;
-}
-
-.Shearch input {
-    width: 500px;
-    height: 35px;
-    border-radius: 10px;
-    border: none;
-}
-
-.Shearch button{
-    width: 100px;
-    height: 35px;
-    margin: 10px;
-    border-radius: 10px;
-    background-color: rgb(117, 90, 148);
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    font-family: 'Bebas Neue', cursive;
-}
-
-.Shearch_container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0 20px 0  ;
-
-}
-
-.Shearch button:hover{
-    background-color: rgb(73, 45, 104);
-    color: white;
-    font-size: 1.5rem;
-    font-family: 'Bebas Neue', cursive;
-}
-
-@media screen and (max-width: 768px) {
-    .Shearch input{
-        width: 150px;
-        height: 35px;
-        border-radius: 10px;
-        border: none;
-    }
-}
-
-.Shearch select{
-    margin-left:10px;
-    width: 150px;
-    height: 35px;
-    border-radius: 10px;
-    border: none;
-    
-}
-
-/*MAIN*/
 
 .Containerisation{
     display: flex;
     MAX-width: 1380px;
     margin : 0 auto 30px ;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
-.Cards{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 10px;
-    flex-direction: column;
-}
-
-.card{
-    margin: 20px 15px 0;
-    background-color: rgb(73, 45, 104);
-    color: white;
-    width: 400px;
-    text-align: center;
-    border-radius: 10px;
-    font-size: 20px;
-    height: 250px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-}
-
-.reduc p{
-    position: absolute;
-    margin-top: -10px;
-    margin-left: -5px;
-    padding: 6px 18px;
-    background-color: rgb(73, 45, 104);
-    color: white;
-    border-radius: 10px;
-
-}
-
-.name_price{
-    display: flex;
-    justify-content: space-between;
-    margin:  0 30px;
-}
-
-.name_price p{
-    margin: 10px 0;
-    font-size: 2em;
-}
-
-.name_price h2{
-    margin: 10px 0;
-    font-size: 2em;
-}
-
-.card img{
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-}
-
-/*BANNER*/
-
-.banner{
-    background-color: rgb(73, 45, 104);
-    width: 100%;
-    height: 50%;
-    text-align: center;
-    padding: 15px;
-    color: white;
-    margin-bottom: 30px;
-    font-size: 2em;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-}
-
-.banner_text{
-    display: flex;
-    justify-content: space-around;
-}
-
-.banner_text p{
-    margin: -20px 0;
-    font-size: 12px ;
-    align-items: center;
-
-}
-
-.banner_service{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
 
 /*LES JEUX LES MOIN CHER*/
 .moin_cher{
-    font-size: 1.5em;
-    margin: 70px 0 0 150px;
+    font-size: 2em;
+    margin: 70px 0 ;
+    text-align: center;
+    font-family: Lato, cursive;
+
 }
+
+
+/*LOGIN*/
+
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 
 /*FOOTER*/
 footer {

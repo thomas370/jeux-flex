@@ -1,12 +1,14 @@
 import React from 'react';
-import * as ReactDOM from 'react-dom';
-import { createBrowserRouter, RouterProvider,} from "react-router-dom";
+import {createRoot} from "react-dom/client";
+import { createHashRouter, RouterProvider,} from "react-router-dom";
 import './styles/app.css';
 import Home from './js/components/Home';
 import Panier from './js/components/Panier';
 import Fiches from './js/components/Fiches';
+import LoginUser from "./js/components/LoginUser";
 
-const router = createBrowserRouter([{
+
+const router = createHashRouter([{
     path: '/',
     element : <Home />,
 }, {
@@ -15,12 +17,22 @@ const router = createBrowserRouter([{
 }, {
     path: 'fiches/:id',
     element : <Fiches />,
+}, {
+    path: 'loginUser',
+    element : <LoginUser />,
 }
 ]);
 
 
 
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-    <RouterProvider router={router} />
-);
+if (document.getElementById("root")) {
+    const rootAppElement = document.getElementById("root");
+    const rootApp = createRoot(rootAppElement);
+    rootApp.render(
+        <>
+            <RouterProvider router={router} />
+        </>
+    )
+    ;
+}

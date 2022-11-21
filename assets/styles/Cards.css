@@ -1,0 +1,96 @@
+/*CARD*/
+
+.Cards:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+
+.Cards{
+    transition: 0.5s;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 10px;
+    flex-direction: column;
+}
+
+
+.card{
+    margin: 20px 15px 0;
+    background-color: rgb(73, 45, 104);
+    color: white;
+    width: 400px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 20px;
+    height: 250px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.reduc p{
+    position: absolute;
+    margin-top: -10px;
+    margin-left: -5px;
+    padding: 6px 18px;
+    background-color: rgb(73, 45, 104);
+    color: white;
+    border-radius: 10px;
+
+}
+
+.name_price{
+    display: flex;
+    justify-content: space-between;
+    margin:  0 30px;
+    color: #1b1e21;
+}
+
+.name_price p{
+    margin: 10px 0;
+    font-size: 2em;
+    font-family: Lato, cursive;
+}
+
+.name_price h2{
+    margin: 10px 0;
+    font-size: 2em;
+}
+
+.card img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.card #video{
+    display: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.card:hover .reduc{
+    display: none;
+}
+
+.card .reduc{
+    display: block;
+}
+
+.card:hover #video{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.card:hover #image{
+    display: none;
+}
+
+.card #image{
+    display: block;
+}

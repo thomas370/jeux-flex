@@ -1,0 +1,104 @@
+/*HEADER*/
+.shadow{
+    filter: drop-shadow(-1px 6px 6px rgba(0, 0, 0, 0.78));
+}
+
+header {
+    background-image: url("../images/Gotham-Knights-Promo-Image.jpg");
+    width: 100vw;
+    height: 90vh;
+    background-size: cover;
+    background-position: top;
+    padding-bottom: 15px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 8em));
+}
+
+.shadow img{ /*IMAGES FICHES*/
+    width: 100vw;
+    height: 80vh;
+    background-size: cover;
+    background-position: top;
+    padding-bottom: 15px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 8em));
+}
+
+/*FILTER*/
+
+.filter {
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+/*Shearch*/
+
+.Shearch{
+    margin: 10px 10px 10px 10px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.151);
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.Shearch input {
+    width: 500px;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+}
+
+.Shearch button{
+    width: 100px;
+    height: 35px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: rgb(117, 90, 148);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.filter_container {
+    display : flex;
+    justify-content: center;
+}
+.Shearch_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 20px 0  ;
+
+}
+
+.Shearch button:hover{
+    background-color: rgb(73, 45, 104);
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Bebas Neue', cursive;
+}
+
+@media screen and (max-width: 768px) {
+    .Shearch input{
+        width: 150px;
+        height: 35px;
+        border-radius: 10px;
+        border: none;
+    }
+}
+
+.Shearch select{
+    margin-left:10px;
+    width: 150px;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+
+}
