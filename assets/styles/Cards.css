@@ -40,6 +40,17 @@
     font-family: Lato, cursive;
 }
 
+.like p{
+    position: absolute;
+    margin-top: -10px;
+    margin-left: 350px;
+    padding: 6px 18px;
+    background-color: rgb(73, 45, 104);
+    color: white;
+    border-radius: 10px;
+    font-family: Lato, cursive;
+}
+
 .name_price{
     display: flex;
     justify-content: space-between;

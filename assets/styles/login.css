@@ -1,0 +1,47 @@
+/*LOGIN*/
+
+.login {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    width: 400px;
+    margin-top: 100px;
+}
+
+.login h1 {
+    text-align: center;
+    color:rgb(73, 45, 104);
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0 0 20px 0;
+}
+
+.login input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-family: Lato, cursive;
+}
+
+.login input[type="submit"] {
+    background: #333;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+}
+
+button {
+    background-color: rgb(73, 45, 104);
+    border: 0;
+    padding: 5px;
+    width: 100%;
+    color: #fff;
+    cursor: pointer;
+}

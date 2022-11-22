@@ -1,18 +1,16 @@
 import React from 'react';
-
+import '../../styles/login.css';
 
 const loginUser = () => {
     return (
-        <div className="login-wrapper">
-            <h1>Please Log In</h1>
+        <div className="login">
+            <h1>Log In</h1>
             <form>
                 <label>
-                    <p>Username</p>
-                    <input type="text" onChange={e => setUserName(e.target.value)} />
+                    <input type="text"placeholder='pseudo' onChange={e => setUserName(e.target.value)} />
                 </label>
                 <label>
-                    <p>Password</p>
-                    <input type="password" onChange={e => setPassword(e.target.value)} />
+                    <input type="password"  placeholder='Password'  onChange={e => setPassword(e.target.value)} />
                 </label>
                 <div>
                     <button type="submit">Submit</button>
