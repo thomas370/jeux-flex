@@ -232,4 +232,5 @@ class Jeux
 
         return $this;
     }
+
 }

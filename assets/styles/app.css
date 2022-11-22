@@ -55,8 +55,14 @@ hr{
     font-family: Lato, cursive;
 
 }
+/*TOUT LES JEUX*/
+.toutlesjeux{
+    font-size: 2em;
+    margin: 30px 0 ;
+    text-align: center;
+    font-family: Lato, cursive;
 
-
+}
 /*LOGIN*/
 
 .login-wrapper {

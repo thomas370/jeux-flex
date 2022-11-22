@@ -5,7 +5,7 @@ import Footer from "./Footer";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCartShopping} from '@fortawesome/free-solid-svg-icons';
 import {useParams} from "react-router-dom";
-import Avis from "./Avis";
+
 
 
 const Fiches = () => {
@@ -20,6 +20,13 @@ const Fiches = () => {
     }
     useEffect(() => {fetchGames()}, []);
     useEffect(() => {console.log(game)}, [game]);
+
+    function avis(){
+        if (game.avis === null)
+            return "Pas d'avis pour le moment";
+        else
+            return game.avis;
+    }
 
     return (
             <div>
@@ -48,6 +55,7 @@ const Fiches = () => {
                         </div>
                     </div>
                 </div>
+                <div className={"descriptions"}>
                     <div className={'description'}>
                         <h2>Description</h2>
                         <p>{game.description}</p>
@@ -56,9 +64,23 @@ const Fiches = () => {
                         <h2>Video</h2>
                         <video loading="eager" id={"video" } src={game.video} controls={false} autoPlay={true} loop={true} muted={true} />
                     </div>
-                <Avis />
+                     
+                    <div className={'avis'}>
+                    {game.avis ?
+                        <div>
+                            <h2>Avis</h2>
+                            <p>{game.avis}</p>
+                        </div>
+                        :
+                        <div>
+                            <h2>Avis</h2>
+                            <p>Pas d'avis pour le moment</p>
+                        </div>
+                    }
+                    </div>
                 <Footer />
             </div>
+        </div>
     )
 }
 

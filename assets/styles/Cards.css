@@ -26,6 +26,7 @@
     font-size: 20px;
     height: 250px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    
 }
 
 .reduc p{
@@ -36,7 +37,7 @@
     background-color: rgb(73, 45, 104);
     color: white;
     border-radius: 10px;
-
+    font-family: Lato, cursive;
 }
 
 .name_price{
@@ -44,6 +45,7 @@
     justify-content: space-between;
     margin:  0 30px;
     color: #1b1e21;
+    font-family: Lato, cursive;
 }
 
 .name_price p{

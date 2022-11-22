@@ -25,6 +25,9 @@ const Home = () => {
         <div>
             <Nav />
             <Header searchResult={searchResult} games={games} setGames={setGames} setSearchResult={setSearchResult}/>
+            <div className={'toutlesjeux'}>
+                <h2>Tous nos jeux </h2>
+            </div>
             <div className={"Containerisation"}>
                     {searchResult.map(game =>  <Link key={game.id} to={'/fiches/' + game.id}> <Card  game={game} /> </Link>)}
             </div>

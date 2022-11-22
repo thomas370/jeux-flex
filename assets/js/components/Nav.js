@@ -11,7 +11,7 @@ const Nav = () => {
             <span className="navbar-toggle" id="js-navbar-toggle">
             <FontAwesomeIcon icon={faBars} />
             </span>
-            <a href={"/"} className="logo" >Jeux-Flex</a>
+            <Link to="/" className="logo">Jeux-Flex</Link>
             <ul className="main-nav" id="js-menu">
                 <li><Link className="nav-links" to="/panier"><FontAwesomeIcon icon={faCartShopping} /></Link></li>
                 <li><Link  to="/loginUser"><FontAwesomeIcon icon={faUser} /></Link></li>
