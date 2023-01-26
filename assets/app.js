@@ -6,20 +6,24 @@ import Home from './js/components/Home';
 import Panier from './js/components/Panier';
 import Fiches from './js/components/Fiches';
 import LoginUser from "./js/components/LoginUser";
+import Register from "./js/components/Register";
 
 
 const router = createHashRouter([{
     path: '/',
     element : <Home />,
 }, {
-    path: 'panier',
+    path: 'Panier',
     element : <Panier />,
 }, {
-    path: 'fiches/:id',
+    path: 'Fiches/:id',
     element : <Fiches />,
 }, {
-    path: 'loginUser',
+    path: 'LoginUser',
     element : <LoginUser />,
+},{
+    path: 'Register',
+    element : <Register />,
 }
 ]);
 

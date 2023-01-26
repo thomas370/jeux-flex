@@ -1,32 +1,28 @@
-import React, {useEffect, useState} from 'react';
-import '../../styles/Fiches.css';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import "../../styles/Fiches.css";
 import Nav from "./Nav";
 import Footer from "./Footer";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faCartShopping} from '@fortawesome/free-solid-svg-icons';
-import {useParams} from "react-router-dom";
-
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 const Fiches = () => {
-    const {id} = useParams();
-
+    const { id } = useParams();
     const [game, setGame] = useState({});
-    const fetchGames = async () => {
-        const response = await fetch('http://localhost:8000/api/jeuxes/' + id);
-        const data = await response.json();
-        console.log(data)
-        setGame(data);
-    }
-    useEffect(() => {fetchGames()}, []);
-    useEffect(() => {console.log(game)}, [game]);
+    const [cart, setCart] = useState([]);
 
-    function avis(){
-        if (game.avis === null)
-            return "Pas d'avis pour le moment";
-        else
-            return game.avis;
-    }
+    useEffect(() => {
+        const fetchGames = async () => {
+            const response = await fetch(`http://localhost:8000/api/jeuxes/${id}`);
+            const data = await response.json();
+            setGame(data);
+        };
+        fetchGames();
+    }, [id]);
+
+    const handleAddToCart = () => {
+        setCart([...cart, game]);
+    };
 
     return (
             <div>
@@ -63,20 +59,6 @@ const Fiches = () => {
                     <div className={'video'}>
                         <h2>Video</h2>
                         <video loading="eager" id={"video" } src={game.video} controls={false} autoPlay={true} loop={true} muted={true} />
-                    </div>
-                     
-                    <div className={'avis'}>
-                    {game.avis ?
-                        <div>
-                            <h2>Avis</h2>
-                            <p>{game.avis}</p>
-                        </div>
-                        :
-                        <div>
-                            <h2>Avis</h2>
-                            <p>Pas d'avis pour le moment</p>
-                        </div>
-                    }
                     </div>
                 <Footer />
             </div>

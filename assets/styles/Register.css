@@ -1,6 +1,6 @@
 /*LOGIN*/
 
-.login {
+.Register {
     background: #fff;
     padding: 20px;
     border-radius: 5px;
@@ -10,7 +10,7 @@
     margin-top: 100px;
 }
 
-.login h1 {
+.Register h1 {
     text-align: center;
     color:rgb(73, 45, 104);
     font-size: 20px;
@@ -18,7 +18,7 @@
     margin: 0 0 20px 0;
 }
 
-.login input {
+.Register input {
     display: block;
     box-sizing: border-box;
     width: 100%;
@@ -30,11 +30,16 @@
     font-family: Lato, cursive;
 }
 
-.login input[type="submit"] {
+.Register input[type="submit"] {
     background: #333;
     border: 0;
     color: #fff;
     cursor: pointer;
+}
+
+.Register a {
+    color : rgb(73, 45, 104);
+    text-decoration: none;
 }
 
 button {
@@ -46,12 +51,20 @@ button {
     cursor: pointer;
 }
 
-p {
-    text-align: center;
-    font-size: 14px;
+.back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: rgb(73, 45, 104);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.login a {
-    color : rgb(73, 45, 104);
-    text-decoration: none;
+.back-button i {
+    font-size: 20px;
+    color: #fff;
 }

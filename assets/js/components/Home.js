@@ -29,14 +29,20 @@ const Home = () => {
                 <h2>Tous nos jeux </h2>
             </div>
             <div className={"Containerisation"}>
+                <React.Suspense fallback={<div>Loading...</div>}>
                     {searchResult.map(game =>  <Link key={game.id} to={'/fiches/' + game.id}> <Card  game={game} /> </Link>)}
+                </React.Suspense>
+
             </div>
             <Banner game={searchResult} />
             <div className={'moin_cher'}>
                 <h2>Les jeux les moin chers</h2>
             </div>
             <div className={"Containerisation"}>
-               {games.sort((a, b) => a.prix - b.prix).slice(0, 6).map(game => <Link key={game.id} to={'/fiches/' + game.id}> <Card game={game}  /> </Link>)}
+                {games
+                    .sort((a, b) => a.prix - b.prix)
+                    .slice(0, 6)
+                    .map(game => <Link key={game.id} to={'/fiches/' + game.id}> <Card game={game}  /> </Link>)}
             </div>
             <Footer />
         </div>
