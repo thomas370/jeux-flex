@@ -16,6 +16,7 @@ const Home = () => {
         const data = await response.json();
         console.log(data)
         setGames(data['hydra:member']);
+        console.log(games)
     }
 
     useEffect(() => {fetchGames()}, []);
@@ -30,7 +31,7 @@ const Home = () => {
             </div>
             <div className={"Containerisation"}>
                 <React.Suspense fallback={<div>Loading...</div>}>
-                    {searchResult.map(game =>  <Link key={game.id} to={'/fiches/' + game.id}> <Card  game={game} /> </Link>)}
+                    {searchResult.map(game => <Link key={game.id} to={'/fiches/' + game.id}> <Card game={game}  /> </Link>)}
                 </React.Suspense>
 
             </div>
