@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import Header from './Header';
 import Nav from "./Nav";
 import Footer from "./Footer";
-import {Link} from "react-router-dom";
 
 const Card = React.lazy(() => import('./Card'));
 
@@ -29,7 +28,7 @@ const Home = () => {
             </div>
             <div className={"Containerisation"}>
                 <React.Suspense fallback={<div>Loading...</div>}>
-                    {searchResult.map(game => <Link key={game.id} to={'/fiches/' + game.id}> <Card game={game}  /> </Link>)}
+                    {searchResult.map(game => <Card game={game}  />)}
                 </React.Suspense>
             </div>
             <Footer />
