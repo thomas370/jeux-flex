@@ -43,6 +43,7 @@ const Header = ({searchResult, games, setGames, setSearchResult}) => {
        if (search.search.length === 0 && search.price === "" && search.pc === "" && search.genre === "") {
             setSearchResult(games)
         }
+        
 
     }, [search])
 

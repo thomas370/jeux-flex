@@ -85,15 +85,6 @@ header {
     font-family: 'Bebas Neue', cursive;
 }
 
-@media screen and (max-width: 768px) {
-    .Shearch input{
-        width: 150px;
-        height: 35px;
-        border-radius: 10px;
-        border: none;
-    }
-}
-
 .Shearch select{
     margin-left:10px;
     width: 150px;
@@ -102,3 +93,55 @@ header {
     border: none;
 
 }
+
+@media screen and (max-width: 768px) {
+    .Shearch input{
+        width: 150px;
+        height: 35px;
+        border-radius: 10px;
+        border: none;
+    }
+
+    header {
+    width: 100vw;
+    height: 70vh;
+    }
+
+    .shadow img {
+        width: 100vw;
+        height: 60vh;
+    }
+    
+    .Shearch input {
+        width: 100%;
+    }
+    
+    .Shearch button {
+        width: 50%;
+    }
+    
+    .Shearch select {
+        width: 100%;
+    }
+    }
+    
+    @media screen and (max-width: 480px) {
+    header {
+    height: 50vh;
+    }
+    
+   
+    .shadow img {
+        height: 40vh;
+    }
+    }
+    
+    @media screen and (max-width: 320px) {
+    header {
+    height: 40vh;
+    }
+    
+    .shadow img {
+        height: 30vh;
+    }
+    }

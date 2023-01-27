@@ -1,14 +1,8 @@
 import React from 'react';
 import '../../styles/Cards.css';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faHeart} from "@fortawesome/free-solid-svg-icons";
 
 
 const Card = ({game}) => {
-
-    function heart(){
-        onclick = <FontAwesomeIcon icon={faHeart} color={"red"}/>
-    }
     return (
         game &&
             <div className={"Containerisation"}>

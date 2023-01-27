@@ -55,3 +55,31 @@ p {
     color : rgb(73, 45, 104);
     text-decoration: none;
 }
+
+/*MEDIA SCREEN*/
+
+/* Largeur d'écran inférieure à 600px */
+@media only screen and (max-width: 600px) {
+    .login {
+      width: 90%;
+      margin-top: 60px;
+    }
+    .login h1 {
+      font-size: 18px;
+    }
+    .login input {
+      font-size: 14px;
+    }
+  }
+  
+  /* Largeur d'écran inférieure à 480px */
+  @media only screen and (max-width: 480px) {
+    .login {
+      width: 100%;
+      padding: 10px;
+      margin-top: 65px;
+    }
+    .login h1 {
+      font-size: 16px;
+    }
+  }

@@ -1,4 +1,4 @@
-/*LOGIN*/
+/*REGISTER*/
 
 .Register {
     background: #fff;
@@ -37,11 +37,6 @@
     cursor: pointer;
 }
 
-.Register a {
-    color : rgb(73, 45, 104);
-    text-decoration: none;
-}
-
 button {
     background-color: rgb(73, 45, 104);
     border: 0;
@@ -51,20 +46,40 @@ button {
     cursor: pointer;
 }
 
-.back-button {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    background-color: rgb(73, 45, 104);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+p {
+    text-align: center;
+    font-size: 14px;
 }
 
-.back-button i {
-    font-size: 20px;
-    color: #fff;
+.Register a {
+    color : rgb(73, 45, 104);
+    text-decoration: none;
 }
+
+/*MEDIA SCREEN*/
+
+/* Largeur d'écran inférieure à 600px */
+@media only screen and (max-width: 600px) {
+    .Register {
+      width: 90%;
+      margin-top: 60px;
+    }
+    .Register h1 {
+      font-size: 18px;
+    }
+    .Register input {
+      font-size: 14px;
+    }
+  }
+  
+  /* Largeur d'écran inférieure à 480px */
+  @media only screen and (max-width: 480px) {
+    .Register {
+      width: 100%;
+      padding: 10px;
+      margin-top: 65px;
+    }
+    .Register h1 {
+      font-size: 16px;
+    }
+  }
