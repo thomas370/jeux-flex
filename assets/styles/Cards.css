@@ -67,7 +67,7 @@
 
 .name_price h2{
     margin: 10px 0;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .card img{
@@ -107,3 +107,7 @@
 .card #image{
     display: block;
 }
+
+.heart-red{
+    color :red;
+} 
