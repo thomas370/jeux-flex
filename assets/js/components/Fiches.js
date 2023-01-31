@@ -3,8 +3,6 @@ import { useParams } from "react-router-dom";
 import "../../styles/Fiches.css";
 import Nav from "./Nav";
 import Footer from "./Footer";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 const Fiches = () => {
     const { id } = useParams();
@@ -21,8 +19,18 @@ const Fiches = () => {
     }, [id]);
 
     const handleAddToCart = () => {
-        setCart([...cart, game]);
-        localStorage.setItem("cart", JSON.stringify([...cart, game]));
+        const newCart = [...cart];
+        const itemInCart = newCart.find((item) => item.id === game.id);
+        if (itemInCart) {
+            itemInCart.quantity++;
+        } else {
+            newCart.push({
+                ...game,
+                quantity: 1,
+            });
+        }
+        setCart(newCart);
+        localStorage.setItem("cart", JSON.stringify(newCart));
         console.log(cart);
     };
 
@@ -47,7 +55,7 @@ const Fiches = () => {
                                     <h4>{game.prix}€</h4>
                                 </div>
                             <div className={"btn"}>
-                                <button onClick={handleAddToCart}> <FontAwesomeIcon icon={faCartShopping} /> Ajouter au panier</button>
+                                <button onClick={handleAddToCart}> Ajouter au panier</button>
                             </div>
                         </div>
                     </div>
