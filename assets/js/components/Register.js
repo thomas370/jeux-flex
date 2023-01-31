@@ -8,7 +8,6 @@ import {Link} from "react-router-dom";
 const Register = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [erreur, setErreur] = useState("")
 
     const handleSubmit = async (e) => {
         e.preventDefault()

@@ -1,74 +1,90 @@
 import React, {useEffect, useState} from 'react';
 import '../../styles/Header.css';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-
 
 const Header = ({searchResult, games, setGames, setSearchResult}) => {
-    const [search, setSearch] = useState({
-        search: "",
-        price: "",
-        pc: "",
-        genre: "",
-    });
+  const [search, setSearch] = useState({
+    search: "",
+    price: "",
+    pc: "",
+    genre: "",
+  });
 
-
-    function onChange({currentTarget}) {
-        const {name, value} = currentTarget;
-        setSearch({...search, [name]: value});
-
+  function handleSearch() {
+    if (search.search.length >= 2) {
+      search.search = search.search.toLowerCase();
+      const result = searchResult.filter(game => game.name.includes(search.search));
+      setSearchResult(result);
     }
+    if (search.price) {
+      const rangeValue = search.price.split('-');
+      const result = searchResult.filter(game => game.prix >= rangeValue[0] && game.prix <= rangeValue[1]);
+      setSearchResult(result);
+    }
+    if (search.pc) {
+      const result = searchResult.filter(game => game.id_plat?.platform === search.pc);
+      setSearchResult(result);
+    }
+    if (search.genre) {
+      const result = searchResult.filter(game => game.id_type?.type === search.genre);
+      setSearchResult(result);
+    }
+    if (search.search.length === 0 && search.price === "" && search.pc === "" && search.genre === "") {
+      setSearchResult(games);
+    }
+  }
 
-    useEffect(() => {
-        console.log(search)
-        if (search.search.length >= 2) {
-            const result = searchResult.filter(game => game.name.includes(search.search));
-            setSearchResult(result)
+  function handleReset() {
+    setSearch({
+      search: "",
+      price: "",
+      pc: "",
+      genre: "",
+    });
+    setSearchResult(games);
+  }
+
+  function handleChange({currentTarget}) {
+    const {name, value} = currentTarget;
+    setSearch({...search, [name]: value});
+    if (name === "price") {
+        const rangeValue = value.split('-');
+        const result = searchResult.filter(game => game.prix >= rangeValue[0] && game.prix <= rangeValue[1]);
+        setSearchResult(result);
         }
-       if (search.price) {
-            const rangeValue = search.price.split('-')
-            const result = searchResult.filter(game => game.prix >= rangeValue[0] && game.prix <= rangeValue[1])
-            setSearchResult(result)
+    if (name === "pc") {
+        const result = searchResult.filter(game => game.id_plat?.platform === value);
+        setSearchResult(result);
         }
-
-       if (search.pc) {
-            const result = searchResult.filter(game => game.id_plat?.platform === search.pc)
-            setSearchResult(result)
+    if (name === "genre") {
+        const result = searchResult.filter(game => game.id_type?.type === value);
+        setSearchResult(result);
         }
-
-       if (search.genre) {
-           const result = searchResult.filter(game => game.id_type?.type === search.genre)
-           setSearchResult(result)
-       }
-
-       if (search.search.length === 0 && search.price === "" && search.pc === "" && search.genre === "") {
-            setSearchResult(games)
+    if (name === "search") {
+        if (value.length >= 2) {
+            value.toLowerCase();
+            const result = searchResult.filter(game => game.name.includes(value));
+            setSearchResult(result);
         }
-        
+        if (value.length === 0) {
+            setSearchResult(games);
+        }
+    }
+  }
 
-    }, [search])
-
-    useEffect(() => {
-    }, [games])
-
-
-    return (
-        <div>
-            <div className="shadow">
-                <header>
-
-                </header>
-            </div>
-            <div className="filter">
-                <div className='Shearch'>
-                    <div className={'Shearch_container'}>
-                        <input onChange={(e) => onChange(e)} id='recherche' type="text"
-                               placeholder=" Search..." name="search"></input>
-                        <button>Search</button>
-                        <button>Reset</button>
-
+  return (
+    <div>
+      <div className="shadow">
+        <header />
+      </div>
+      <div className="filter">
+        <div className="Shearch">
+          <div className="Shearch_container">
+          <input id="recherche" type="text" placeholder="Search..." name="search" onChange={handleChange} />            
+          <button onClick={handleSearch} >Search</button>
+            <button onClick={handleReset}>Reset</button>
                     </div>
                     <div className="filter_container">
-                        <select name="pc" id="PC-select" onChange={onChange}>
+                        <select name="pc" id="PC-select" onChange={handleChange}>
                             <option value="">Platform</option>
                             <option value="Steam">Steam</option>
                             <option value="Battle.net">Battle.net</option>
@@ -77,7 +93,7 @@ const Header = ({searchResult, games, setGames, setSearchResult}) => {
                             <option value="Rockstar">Rockstar</option>
                             <option value="Epic">Epic</option>
                         </select>
-                        <select name="genre" onChange={onChange}>
+                        <select name="genre" onChange={handleChange}>
                             <option value="">Genre</option>
                             <option value="Action">Action</option>
                             <option value="Aventure">Aventure</option>
@@ -87,7 +103,7 @@ const Header = ({searchResult, games, setGames, setSearchResult}) => {
                             <option value="Sport">Sport</option>
                             <option value="Stratégie">Stratégie</option>
                         </select>
-                        <select name='price' onChange={onChange}>
+                        <select name='price' onChange={handleChange}>
                             <option value="">Prix</option>
                             <option value="0-10">0-10€</option>
                             <option value="10-30">10-30€</option>

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import '../../styles/Cards.css';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
@@ -11,7 +12,7 @@ const handleClick = (id,ref) => {
     }else{
         ref.current.classList.add("heart-red")
     }
-}
+} 
 
 const Card = ({game}) => {
     const myRef = useRef(null)
