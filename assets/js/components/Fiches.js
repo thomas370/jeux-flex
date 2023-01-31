@@ -22,6 +22,8 @@ const Fiches = () => {
 
     const handleAddToCart = () => {
         setCart([...cart, game]);
+        localStorage.setItem("cart", JSON.stringify([...cart, game]));
+        console.log(cart);
     };
 
     return (
@@ -45,8 +47,7 @@ const Fiches = () => {
                                     <h4>{game.prix}€</h4>
                                 </div>
                             <div className={"btn"}>
-                                <button><FontAwesomeIcon icon={faCartShopping} /></button>
-                                <button>Acheter maintenant</button>
+                                <button onClick={handleAddToCart}> <FontAwesomeIcon icon={faCartShopping} /> Ajouter au panier</button>
                             </div>
                         </div>
                     </div>

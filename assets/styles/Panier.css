@@ -1,0 +1,44 @@
+.panier_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .Adresse_livre, .payment {
+    width: 45%;
+    text-align: center;
+    background-color: rgb(197, 159, 231);
+    border-radius: 20px;
+  }
+
+  .panier{
+    width: 55%;
+    margin: 1rem 1rem;
+    padding: 1rem;
+    text-align: center;
+    background-color: rgb(197, 159, 231);
+    border-radius: 20px;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .panier_article_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .panier_article_container img {
+    width: 70%;
+    border-radius: 20px 0 0 20px;
+  }
+
+  .panier_article_info {
+    width: 30%;
+    padding: 1rem;
+    text-align: center;
+    background-color: rgb(172, 100, 235);
+  }
