@@ -1,5 +1,4 @@
 import axios from "axios";
-import jwtDecode from "jwt-decode";
 
 export const setAxiosToken = (token) => {
   axios.defaults.headers["Authorization"] = `Bearer ${token}`;
