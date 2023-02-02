@@ -142,4 +142,41 @@
        
         margin: 0 0 30px 0;
     }
+    .row img {
+        margin: 0 0 30px 0;
+    }
 }
+
+@media screen and (max-width: 1000px) {
+    .row img {
+        width: 500px;
+        height: 300px;
+        margin: 0 0 30px 0;
+    }
+    .info {
+        width: 500px;
+        height: 300px;
+    }
+    .description, .video {
+        margin: 0 100px;
+        width: 60%;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .row img {
+        width: 400px;
+        height: 250px;
+        margin: 0 0 30px 0;
+    }
+    .info {
+        width: 400px;
+        height: 250px;
+    }
+    .description, .video {
+        margin: 0 50px;
+        width: 80%;
+    }
+}
+

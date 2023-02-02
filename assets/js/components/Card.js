@@ -11,6 +11,7 @@ const handleClick = (id,ref) => {
         ref.current.classList.remove("heart-red")
     }else{
         ref.current.classList.add("heart-red")
+        //validé la mise en favoris par une phrase en desous de la card
     }
 } 
 
@@ -19,7 +20,7 @@ const Card = ({game}) => {
     return (
         game &&
             <div className={"Containerisation"}>
-                <div className={"Cards"}>
+                <div className={"Card"}>
                 <Link key={game.id} to={'/fiches/' + game.id}>
                     <div className={`card`}>
                         <div className={"reduc"}>

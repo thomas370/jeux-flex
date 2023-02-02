@@ -10,9 +10,10 @@ const Header = ({searchResult, games, setGames, setSearchResult}) => {
   });
 
   function handleSearch() {
-    if (search.search.length >= 2) {
-      search.search = search.search.toLowerCase();
-      const result = searchResult.filter(game => game.name.includes(search.search));
+    if (search.search.length >= 1) {
+      search.search.toLowerCase();
+      const result = games.filter(game => game.name.includes(search.search));
+      console.log(result)
       setSearchResult(result);
     }
     if (search.price) {

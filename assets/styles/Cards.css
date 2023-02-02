@@ -113,3 +113,11 @@
 .heart-red{
     color :red;
 } 
+
+@media screen and (max-width: 470px) {
+    .card{
+        width: 300px;
+        height: 200px;
+    }
+    
+}

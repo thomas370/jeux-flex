@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { useState } from "react"
 import '../../styles/Nav.css';
 import { Link } from "react-router-dom";
 import { logout } from '../../../src/service/auth.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping, faUser, faBars, faStar } from '@fortawesome/free-solid-svg-icons';
-
-const handleClick = () => {
-  const menu = document.querySelector("#js-menu");
-  menu.classList.toggle("show");
-}
+import { faCartShopping, faUser, faBars, faStar, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const Nav = () => {
+  const [navbarOpen, setNavbarOpen] = useState(false)
+
+  const handleToggle = () => {
+    setNavbarOpen(!navbarOpen)
+  }
+
   return (
     <nav className="navbar">
-      <span className="navbar-toggle" id="js-navbar-toggle" onClick={handleClick}>
-        <FontAwesomeIcon icon={faBars} />
+      <span className="navbar-toggle" id="js-navbar-toggle" onClick={handleToggle}>{navbarOpen ? <FontAwesomeIcon icon={faXmark} /> : <FontAwesomeIcon icon={faBars} />}
       </span>
       <Link to="/" className="logo">Jeux-Flex</Link>
       <ul className="main-nav" id="js-menu">

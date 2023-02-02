@@ -16,8 +16,8 @@ header {
 .shadow img{ /*IMAGES FICHES*/
     width: 100vw;
     height: 80vh;
-    background-size: cover;
-    background-position: top;
+    object-fit: cover;
+    background-position: center;
     padding-bottom: 15px;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 8em));
 }
@@ -119,5 +119,14 @@ header {
         border-radius: 10px;
         border: none;
     
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .Shearch input {
+        width: 300px;
+        height: 35px;
+        border-radius: 10px;
+        border: none;
     }
 }
