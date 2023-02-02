@@ -7,6 +7,7 @@ import Panier from './js/components/Panier';
 import Fiches from './js/components/Fiches';
 import LoginUser from "./js/components/LoginUser";
 import Register from "./js/components/Register";
+import BackOffice from "./js/components/Backoffice";
 
 
 const router = createHashRouter([{
@@ -24,6 +25,9 @@ const router = createHashRouter([{
 },{
     path: 'Register',
     element : <Register />,
+},{
+    path: 'Backoffice',
+    element : <BackOffice />,
 }
 ]);
 

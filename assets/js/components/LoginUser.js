@@ -17,11 +17,10 @@ const loginUser = () => {
             password
         }
         try {
-            const response = await axios.post('http://localhost:8000/api/login', credential).then(response => response.data.token).then(token => {
+            const response = await axios.post('http://localhost:8000/api/login', credential).then(response => response.data.token).then(token => {             
                 window.localStorage.setItem('token', token);
                 setAxiosToken(token)
-                return jwtDecode(token)
-            });
+                return jwtDecode(token)});
 
             console.log(response);
         } catch (error) {
