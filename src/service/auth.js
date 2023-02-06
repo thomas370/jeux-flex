@@ -6,17 +6,19 @@ export const setAxiosToken = (token) => {
 };
 
 export const logout = () => {
+    console.log("logout")
     window.localStorage.removeItem("token");
     delete axios.defaults.headers["Authorization"];
+    window.location.reload();
 };
 
 export const setup = () => {
-    const token = window.localStorage.getItem("token");
+    let token = window.localStorage.getItem("token");
     if (token) {
         const { exp: expiration, roles: roles } = jwtDecode(token);
         if (expiration * 1000 > new Date().getTime()) {
             setAxiosToken(token);
-            return true && roles;
+            return roles;
         } else {
             logout();
             return false;

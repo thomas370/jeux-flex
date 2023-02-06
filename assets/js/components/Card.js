@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import '../../styles/Cards.css';
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
@@ -9,9 +8,10 @@ const handleClick = (id,ref) => {
     console.log(id)
  if(ref.current.classList.contains("heart-red")){
         ref.current.classList.remove("heart-red")
+        window.localStorage.removeItem("fav")
     }else{
         ref.current.classList.add("heart-red")
-        //validé la mise en favoris par une phrase en desous de la card
+        window.localStorage.setItem("fav",id)
     }
 } 
 

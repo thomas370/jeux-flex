@@ -19,7 +19,7 @@ const Fiches = () => {
     }, [id]);
 
     const handleAddToCart = () => {
-        const newCart = [...cart];
+        const newCart = JSON.parse(localStorage.getItem("cart")) || [];
         const itemInCart = newCart.find((item) => item.id === game.id);
         if (itemInCart) {
             itemInCart.quantity++;

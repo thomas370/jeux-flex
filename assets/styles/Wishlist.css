@@ -1,0 +1,40 @@
+/*LOGIN*/
+
+.wishList {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    width: 400px;
+    margin-top: 100px;
+}
+
+
+/*MEDIA SCREEN*/
+
+/* Largeur d'écran inférieure à 600px */
+@media only screen and (max-width: 600px) {
+    .login {
+        width: 90%;
+        margin-top: 60px;
+    }
+    .login h1 {
+        font-size: 18px;
+    }
+    .login input {
+        font-size: 14px;
+    }
+}
+
+/* Largeur d'écran inférieure à 480px */
+@media only screen and (max-width: 480px) {
+    .login {
+        width: 100%;
+        padding: 10px;
+        margin-top: 65px;
+    }
+    .login h1 {
+        font-size: 16px;
+    }
+}

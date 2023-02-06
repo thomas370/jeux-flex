@@ -16,7 +16,11 @@
 .logo {
     text-decoration: none;
     color: rgb(255, 255, 255);
+    font-size: 34px;
     font-family: 'Bebas Neue', cursive;
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 20px;
 }
 
 
@@ -29,13 +33,6 @@
 .main-nav li:last-child {
     color: rgb(197, 181, 216);
     margin-left: 40px;
-}
-
-.logo {
-    display: inline-block;
-    font-size: 22px;
-    margin-top: 10px;
-    margin-left: 20px;
 }
 
 .navbar-toggle {

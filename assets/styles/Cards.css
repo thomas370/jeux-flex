@@ -62,7 +62,7 @@
 
 .name_price p{
     margin: 10px 0;
-    font-size: 2em;
+    font-size: 1.5em;
     font-family: Lato, cursive;
 }
 
@@ -119,5 +119,9 @@
         width: 300px;
         height: 200px;
     }
-    
+    .name_price h2{
+        margin: 10px 0;
+        font-size: 1em;
+        font-family: Lato, cursive;
+    }
 }

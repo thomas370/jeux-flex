@@ -8,6 +8,7 @@ import Fiches from './js/components/Fiches';
 import LoginUser from "./js/components/LoginUser";
 import Register from "./js/components/Register";
 import BackOffice from "./js/components/Backoffice";
+import WishList from "./js/components/WishList";
 
 
 const router = createHashRouter([{
@@ -28,6 +29,9 @@ const router = createHashRouter([{
 },{
     path: 'Backoffice',
     element : <BackOffice />,
+},{
+    path: 'WishList',
+    element : <WishList />,
 }
 ]);
 
