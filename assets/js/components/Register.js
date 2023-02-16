@@ -11,7 +11,6 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        // creer un objet avec userName et password
         const credential = {
             email,
             password

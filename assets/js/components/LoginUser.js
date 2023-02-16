@@ -50,7 +50,7 @@ const loginUser = () => {
                     </label>
                     <div>
                         <button type="submit">Submit</button>
-
+                        {window.localStorage.getItem('token') ? <p>Vous êtes connecté</p> : null}
                     </div>
                 </form>
                 <p>pas encore inscrit ? <Link to="/Register">Inscription</Link></p>

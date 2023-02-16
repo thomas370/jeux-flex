@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../../styles/Fiches.css";
 import Nav from "./Nav";
+import LoginUser from "./LoginUser";
 import Footer from "./Footer";
 
 const Fiches = () => {
@@ -19,6 +20,9 @@ const Fiches = () => {
     }, [id]);
 
     const handleAddToCart = () => {
+        if(localStorage.getItem("token") === null) {
+            window.location.href = "/LoginUser";
+        }else{
         const newCart = JSON.parse(localStorage.getItem("cart")) || [];
         const itemInCart = newCart.find((item) => item.id === game.id);
         if (itemInCart) {
@@ -32,6 +36,7 @@ const Fiches = () => {
         setCart(newCart);
         localStorage.setItem("cart", JSON.stringify(newCart));
         console.log(cart);
+        }
     };
 
     return (

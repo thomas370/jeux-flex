@@ -15,8 +15,9 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-#[UniqueEntity('email', message: "Un utilisateur ayant cette adresse email existe déjà !")]
+
 #[ORM\Entity(repositoryClass: UserRepository::class)]
+#[UniqueEntity('email', message: "Un utilisateur ayant cette adresse email existe déjà !")]
 #[ApiResource(
     operations: [
         new Get(),
