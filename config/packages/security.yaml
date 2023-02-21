@@ -40,6 +40,7 @@ security:
     access_control:
         - { path: ^/api/users, roles: ROLE_ADMIN, methods: [ GET, PUT, DELETE, PATCH ] }
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/Backoffice, roles: ROLE_ADMIN }
         
 
 when@test:

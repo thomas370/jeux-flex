@@ -3,7 +3,9 @@ import '../../styles/login.css';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { setup } from '../../../src/service/auth';
 import axios from 'axios';
+import jwtDecode from 'jwt-decode';
 
 const loginUser = () => {
     const [email, setEmail] = useState("")
@@ -17,17 +19,17 @@ const loginUser = () => {
             password
         }
         try {
-            const response = await axios.post('http://localhost:8000/api/login', credential).then(response => response.data.token).then(token => {             
+            const response = await axios.post('http://localhost:8000/api/login', credential).then(response => response.data.token).then(token => {
                 window.localStorage.setItem('token', token);
-                setAxiosToken(token)
-                return jwtDecode(token)});
-
+                setup();
+                return jwtDecode(token);
+            });
+            window.location.href = "/";
             console.log(response);
         } catch (error) {
-            console.error(error);
+            console.log(error.response.data);
         }
     }
-
     
 
     return (
@@ -48,6 +50,7 @@ const loginUser = () => {
                     </label>
                     <div>
                         <button type="submit">Submit</button>
+                        {window.localStorage.getItem('token') ? <p>Vous êtes connecté</p> : null}
                     </div>
                 </form>
                 <p>pas encore inscrit ? <Link to="/Register">Inscription</Link></p>
