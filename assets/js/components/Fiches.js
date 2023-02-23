@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../../styles/Fiches.css";
+import loginUser from "./LoginUser";
 import Nav from "./Nav";
-import LoginUser from "./LoginUser";
 import Footer from "./Footer";
 
 const Fiches = () => {

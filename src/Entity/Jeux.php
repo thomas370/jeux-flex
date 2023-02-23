@@ -25,7 +25,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
         new Delete()
     ],
     normalizationContext: ['groups' => ['jeux_read']],
-    paginationItemsPerPage: 50,
+    paginationItemsPerPage: 100,
 )
 ]
 class Jeux

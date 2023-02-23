@@ -18,7 +18,7 @@ class PasswordEncoderSubscriber implements EventSubscriberInterface {
         $this->hasher = $hasher;
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             KernelEvents::VIEW => ['hashPassword', EventPrioritiesAlias::PRE_WRITE]
