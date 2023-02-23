@@ -79,11 +79,11 @@ const Header = ({searchResult, games, setGames, setSearchResult}) => {
       <div className="filter">
         <div className="Shearch">
           <div className="Shearch_container">
-          <input id="recherche" type="text" placeholder="Search..." name="search" onChange={handleChange} />            
+          <input id="recherche" type="text" placeholder="Search..." name="search"  value={search.search} onChange={handleChange} />            
             <button onClick={handleReset}>Reset</button>
                     </div>
                     <div className="filter_container">
-                        <select name="pc" id="PC-select" onChange={handleChange}>
+                        <select name="pc" id="PC-select" value={search.pc} onChange={handleChange}>
                             <option value="">Platform</option>
                             <option value="Steam">Steam</option>
                             <option value="Battle.net">Battle.net</option>
@@ -92,7 +92,7 @@ const Header = ({searchResult, games, setGames, setSearchResult}) => {
                             <option value="Rockstar">Rockstar</option>
                             <option value="Epic">Epic</option>
                         </select>
-                        <select name="genre" onChange={handleChange}>
+                        <select name="genre"  value={search.genre} onChange={handleChange}>
                             <option value="">Genre</option>
                             <option value="Action">Action</option>
                             <option value="Aventure">Aventure</option>
@@ -102,7 +102,7 @@ const Header = ({searchResult, games, setGames, setSearchResult}) => {
                             <option value="Sport">Sport</option>
                             <option value="Stratégie">Stratégie</option>
                         </select>
-                        <select name='price' onChange={handleChange}>
+                        <select name='price' value={search.price} onChange={handleChange}>
                             <option value="">Prix</option>
                             <option value="0-10">0-10€</option>
                             <option value="10-30">10-30€</option>

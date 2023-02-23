@@ -70,10 +70,10 @@ const Register = () => {
             <h1>Inscription</h1>
             <form onSubmit={handleSubmit}>
                 <label>
-                    <input type="text" placeholder='pseudo' onChange={e => setEmail(e.target.value)}/>
+                    <input type="text" placeholder='Email' onChange={e => setEmail(e.target.value)}/>
                 </label>
                 <label>
-                    <input type="password" placeholder='Password' onChange={e => setPassword(e.target.value)}/>
+                    <input type="password" placeholder='Mot de passe' onChange={e => setPassword(e.target.value)}/>
                     <div className="progress-bar">
                         {/[A-Z]/.test(password) && <progress value="100" max="100" />}
                         {password.length >= 8 && <progress value="100" max="100" />}
@@ -82,13 +82,13 @@ const Register = () => {
                     <p>Le mot de passe doit contenir au moins 8 caractères, une majuscule et un caractère spécial.</p>
                 </label>
                 <label>
-                    <input type="password" placeholder='Password-verification' onChange={e => setPasswordConfirm(e.target.value)}/>
+                    <input type="password" placeholder='Vérification de mot de passe' onChange={e => setPasswordConfirm(e.target.value)}/>
                 </label>
                 <div>
-                    <button type="submit">Submit</button>
+                    <button type="submit">Envoyer</button>
                 </div>
             </form>
-            <p>Ce connecter ? <Link  to="/LoginUser">Connexion</Link></p>
+            <p>Se connecter ? <Link  to="/LoginUser">Connexion</Link></p>
         </div>
         </div>
     );

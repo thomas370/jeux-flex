@@ -43,13 +43,13 @@ const loginUser = () => {
                 <h1>Connexion</h1>
                 <form onSubmit={handleSubmit}>
                     <label>
-                        <input type="text" placeholder='pseudo' onChange={e => setEmail(e.target.value)} />
+                        <input type="text" placeholder='Email' onChange={e => setEmail(e.target.value)} />
                     </label>
                     <label>
-                        <input type="password" placeholder='Password' onChange={e => setPassword(e.target.value)} />
+                        <input type="password" placeholder='Mot de passe' onChange={e => setPassword(e.target.value)} />
                     </label>
                     <div>
-                        <button type="submit">Submit</button>
+                        <button type="submit">Envoyer</button>
                         {window.localStorage.getItem('token') ? <p>Vous êtes connecté</p> : null}
                     </div>
                 </form>
