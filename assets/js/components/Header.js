@@ -60,16 +60,15 @@ const Header = ({searchResult, games, setGames, setSearchResult}) => {
         const result = searchResult.filter(game => game.id_type?.type === value);
         setSearchResult(result);
         }
-    if (name === "search") {
-        if (value.length >= 2) {
-            value.toLowerCase();
-            const result = searchResult.filter(game => game.name.includes(value));
-            setSearchResult(result);
-        }
-        if (value.length === 0) {
-            setSearchResult(games);
-        }
-    }
+        if (name === "search") {
+          if (value.length >= 1) {
+              const result = searchResult.filter(game => game.name.includes(value.toLowerCase()));
+              setSearchResult(result);
+          }
+          if (value.length === 0) {
+              setSearchResult(games);
+          }
+      }
   }
 
   return (
@@ -81,7 +80,6 @@ const Header = ({searchResult, games, setGames, setSearchResult}) => {
         <div className="Shearch">
           <div className="Shearch_container">
           <input id="recherche" type="text" placeholder="Search..." name="search" onChange={handleChange} />            
-          <button onClick={handleSearch} >Search</button>
             <button onClick={handleReset}>Reset</button>
                     </div>
                     <div className="filter_container">

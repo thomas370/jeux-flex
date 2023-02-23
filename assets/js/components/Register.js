@@ -9,7 +9,32 @@ const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirm, setPasswordConfirm] = useState("");
+    const [passwordStrength, setPasswordStrength] = useState(0); // Ajout d'un state pour stocker la force du mot de passe
 
+    useEffect(() => {
+    const uppercaseRegex = /[A-Z]/;
+    const specialCharRegex = /[!@#$&*]/;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.{8,})/;
+    let strength = 0;
+
+    // Vérifier si le mot de passe contient une majuscule
+    if (uppercaseRegex.test(password)) {
+        strength += 1;
+    }
+
+    // Vérifier si le mot de passe contient au moins 8 caractères
+    if (password.length >= 8) {
+        strength += 1;
+    }
+
+    // Vérifier si le mot de passe contient un caractère spécial
+    if (specialCharRegex.test(password)) {
+        strength += 1;
+    }
+
+    // Mettre à jour la force du mot de passe
+    setPasswordStrength(strength * 33.3);
+    }, [password]); // Mettre à jour la force du mot de passe à chaque fois que le mot de passe est modifié
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -17,8 +42,7 @@ const Register = () => {
             alert("Les deux mots de passe ne correspondent pas.");
             return;
         }
-        const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.{8,})/;
-        if (!passwordRegex.test(password)) {
+        if (passwordStrength !== 100) {
             alert("Le mot de passe doit contenir au moins 8 caractères, une majuscule et un caractère spécial.");
             return;
         }
@@ -50,6 +74,12 @@ const Register = () => {
                 </label>
                 <label>
                     <input type="password" placeholder='Password' onChange={e => setPassword(e.target.value)}/>
+                    <div className="progress-bar">
+                        {/[A-Z]/.test(password) && <progress value="100" max="100" />}
+                        {password.length >= 8 && <progress value="100" max="100" />}
+                        {/[!@#$&*]/.test(password) && <progress value="100" max="100" />}
+                    </div>
+                    <p>Le mot de passe doit contenir au moins 8 caractères, une majuscule et un caractère spécial.</p>
                 </label>
                 <label>
                     <input type="password" placeholder='Password-verification' onChange={e => setPasswordConfirm(e.target.value)}/>

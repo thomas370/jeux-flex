@@ -56,6 +56,20 @@ p {
     text-decoration: none;
 }
 
+.progress-bar {
+  height: 10px;
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.progress-bar progress {
+  height: 10px;
+  width: 33.3%;
+  background-color: #18701b;
+  border-radius: 5px;
+}
 /*MEDIA SCREEN*/
 
 /* Largeur d'écran inférieure à 600px */

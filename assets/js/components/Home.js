@@ -27,7 +27,7 @@ const Home = () => {
                 <h2>Tous nos jeux </h2>
             </div>
             <div className={"Containerisation"}>
-                <React.Suspense fallback={<div>Loading...</div>}>
+                <React.Suspense fallback={<div>Loading...</div>}> 
                     {searchResult.map(game => <Card key={game.id} game={game}/>)}
                 </React.Suspense>
             </div>
