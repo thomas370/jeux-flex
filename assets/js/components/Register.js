@@ -9,21 +9,8 @@ const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirm, setPasswordConfirm] = useState("");
-    const [users, setUsers] = useState([]);
 
-    useEffect(() => {
-        // Récupérer la liste des utilisateurs existants
-        const fetchUsers = async () => {
-          try {
-            const response = await axios.get("http://localhost:8000/api/users");
-            setUsers(response.data);
-          } catch (error) {
-            console.error(error);
-          }
-        };
-        fetchUsers();
-      }, []);
- 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (password !== passwordConfirm) {
@@ -34,11 +21,6 @@ const Register = () => {
         if (!passwordRegex.test(password)) {
             alert("Le mot de passe doit contenir au moins 8 caractères, une majuscule et un caractère spécial.");
             return;
-        }
-        const existingUser = users.find((user) => user.email === email);
-        if (existingUser) {
-          alert("L'adresse e-mail existe déjà.");
-          return;
         }
         const credential = {
             email,

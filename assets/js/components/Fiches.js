@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "../../styles/Fiches.css";
 import loginUser from "./LoginUser";
 import Nav from "./Nav";
@@ -9,6 +9,7 @@ const Fiches = () => {
     const { id } = useParams();
     const [game, setGame] = useState({});
     const [cart, setCart] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchGames = async () => {
@@ -21,8 +22,8 @@ const Fiches = () => {
 
     const handleAddToCart = () => {
         if(localStorage.getItem("token") === null) {
-            window.location.href = "/LoginUser";
-        }else{
+            navigate('/LoginUser'); // rediriger l'utilisateur vers la page de connexion
+        } else {
         const newCart = JSON.parse(localStorage.getItem("cart")) || [];
         const itemInCart = newCart.find((item) => item.id === game.id);
         if (itemInCart) {
