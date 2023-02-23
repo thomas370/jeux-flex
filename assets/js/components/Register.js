@@ -63,7 +63,7 @@ const Register = () => {
         <div>
             <Link to="/">
                 <button className="back-button">
-                    <FontAwesomeIcon icon={faArrowLeft} />
+                    <p><FontAwesomeIcon icon={faArrowLeft} /> Retour à l'accueil</p>
                 </button>
             </Link>
             <div className="Register">

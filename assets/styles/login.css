@@ -30,11 +30,13 @@
     font-family: Lato, cursive;
 }
 
-.login input[type="submit"] {
-    background: #333;
-    border: 0;
-    color: #fff;
-    cursor: pointer;
+.login button[type="submit"] {
+  background-color: rgb(73, 45, 104);
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 button {
