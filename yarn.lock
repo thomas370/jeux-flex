@@ -1620,10 +1620,10 @@ asynckit@^0.4.0:
   resolved "https://registry.npmjs.org/asynckit/-/asynckit-0.4.0.tgz"
   integrity sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==
 
-axios@^1.3.1:
-  version "1.3.1"
-  resolved "https://registry.npmjs.org/axios/-/axios-1.3.1.tgz"
-  integrity sha512-78pWJsQTceInlyaeBQeYZ/QgZeWS8hGeKiIJiDKQe3hEyBb7sEMq0K4gjx+Va6WHTYO4zI/RRl8qGRzn0YMadA==
+axios@^1.3.4:
+  version "1.3.4"
+  resolved "https://registry.npmjs.org/axios/-/axios-1.3.4.tgz"
+  integrity sha512-toYm+Bsyl6VC5wSkfkbbNB6ROv7KY93PEBBL6xyDczaIHasAiv4wPqQ/c4RjoQzipxRD2W5g21cOqQulZ7rHwQ==
   dependencies:
     follow-redirects "^1.15.0"
     form-data "^4.0.0"
@@ -4309,6 +4309,11 @@ svgo@^2.7.0:
     csso "^4.2.0"
     picocolors "^1.0.0"
     stable "^0.1.8"
+
+sweetpagination@*:
+  version "1.0.15"
+  resolved "https://registry.npmjs.org/sweetpagination/-/sweetpagination-1.0.15.tgz"
+  integrity sha512-9r/3av9ENkwWdHgnVe+L1muQLV1BOuNTUXcl4SGyHXvzKIm5ngB+Po98zMMrqL8zgKd33rh+8MaElpGbaPwBRw==
 
 swiper@^8.4.5:
   version "8.4.5"

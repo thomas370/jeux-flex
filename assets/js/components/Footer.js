@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 import '../../styles/Footer.css';
 
 const Footer = () => {
@@ -7,7 +6,7 @@ const Footer = () => {
         <footer>
                 <div className="rows">
                     <div className="col-md-12">
-                        <p>Copyright &copy; 2022- Jeux-Flex</p>
+                        <p>Copyright &copy; 2023 - Jeux-Flex - All rights reserved</p>
                     </div>
                 </div>
         </footer>
