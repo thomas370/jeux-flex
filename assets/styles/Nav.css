@@ -52,6 +52,19 @@
     display: none;
 }
 
+.pastille{
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+}
+
 @media screen and (min-width: 768px) {
     .navbar {
         display: flex;

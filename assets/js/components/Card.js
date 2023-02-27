@@ -7,6 +7,16 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 const Card = ({game}) => {
     const myRef = useRef(null)
+   //set le coeur en rouge si le jeu est dans le localStorage au moment de la connection
+    const [fav, setFav] = useState(() => {
+        const fav = JSON.parse(window.localStorage.getItem("fav"))
+        if(fav){
+            if(fav.includes(game)){
+                return true
+            }
+        }
+        return false
+    })
     const handleClick = (game,ref) => {
         console.log(game)
         if(ref.current.classList.contains("heart-red")){

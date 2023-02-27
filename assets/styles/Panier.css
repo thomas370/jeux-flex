@@ -25,6 +25,7 @@
     font-family: 'Lato', sans-serif;
   }
 
+
   .card_item {
     display: flex;
     margin: 0 20px 20px 0;
@@ -76,6 +77,13 @@
     font-family: 'Lato', sans-serif;
     box-shadow: rgba(0, 0, 255, .2) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     }
+
+  .card_global a{
+    border: 1px solid black;giy
+    border-radius: 10px;
+    margin: 10px 150px;
+    text-decoration: none;
+  }
   
   .card_total, .card_shipping, .card_tax, .card_Total_after_tax {
     display: flex;

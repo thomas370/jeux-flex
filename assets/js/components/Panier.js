@@ -7,7 +7,7 @@ const Panier = () => {
   const [panier, setPanier] = useState(JSON.parse(localStorage.getItem('cart')) || []);
 
   const handleDelete = (id) => {
-    const itemIndex = panier.findIndex((item) => item.id === id);
+    const itemIndex = panier.findIndex((item) => item.id === item.id);
     if (itemIndex === -1) return;
     const newPanier = [...panier];
     newPanier.splice(itemIndex, 1);
@@ -82,6 +82,8 @@ const Panier = () => {
             <p>{Math.round((panier.reduce((acc, item) => acc + item.prix * item.quantity, 0) + panier.reduce((acc, item) => acc + item.prix, 0) * 0.20) * 100) / 100} €</p>
           </div>
           <button>Comander</button>
+          <p>OU</p>
+            <Link to="/"><p>Continuer mes achats</p></Link>
         </div>
       </div>
     </div>
