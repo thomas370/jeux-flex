@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "../../styles/Fiches.css";
-import loginUser from "./LoginUser";
 import Nav from "./Nav";
 import Footer from "./Footer";
 
