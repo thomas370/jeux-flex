@@ -9,6 +9,7 @@ const Fiches = () => {
     const { id } = useParams();
     const [game, setGame] = useState({});
     const [cart, setCart] = useState([]);
+    const [added, setAdded] = React.useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -17,7 +18,7 @@ const Fiches = () => {
             const data = await response.json();
             setGame(data);
         };
-        fetchGames();
+           fetchGames();
     }, [id]);
 
     const handleAddToCart = () => {
@@ -37,6 +38,7 @@ const Fiches = () => {
         setCart(newCart);
         localStorage.setItem("cart", JSON.stringify(newCart));
         console.log(cart);
+        setAdded(true)
         }
     };
 
@@ -60,8 +62,11 @@ const Fiches = () => {
                                     <p>- {game.reduction} %</p>
                                     <h4>{game.prix}€</h4>
                                 </div>
-                            <div className={"btn"}>
+                            <div className={"btn-add"}>
                                 <button onClick={handleAddToCart}> Ajouter au panier</button>
+                                <div className={`ajouterpanier ${added ? '' : 'hidden'}`}>
+                                    <p>L'article a étes Ajouté au panier</p>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -28,6 +28,9 @@ const loginUser = () => {
             console.log(response);
         } catch (error) {
             console.log(error.response.data);
+            if(error.response.data.code === 401) {
+                alert("Email ou mot de passe incorrect");
+            }
         }
     }
     

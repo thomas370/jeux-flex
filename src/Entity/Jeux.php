@@ -16,6 +16,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: JeuxRepository::class)]
 #[ApiResource(
+
     operations: [
         new Get(),
         new GetCollection(),
@@ -23,6 +24,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
         new Put(),
         new Patch(),
         new Delete()
+
     ],
     normalizationContext: ['groups' => ['jeux_read']],
     paginationItemsPerPage: 100,

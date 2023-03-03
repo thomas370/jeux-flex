@@ -7,7 +7,7 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 const Card = ({game}) => {
     const myRef = useRef(null)
-   //set le coeur en rouge si le jeu est dans le localStorage au moment de la connection
+    //set le coeur en rouge si le jeu est dans le localStorage au moment de la connection
     const [fav, setFav] = useState(() => {
         const fav = JSON.parse(window.localStorage.getItem("fav"))
         if(fav){
@@ -38,8 +38,8 @@ const Card = ({game}) => {
 
     return (
         game &&
-            <div className={"Containerisation"}>
-                <div className={"Card"}>
+        <div className={"Containerisation"}>
+            <div className={"Card"}>
                 <Link key={game.id} to={'/fiches/' + game.id}>
                     <div className={`card`}>
                         <div className={"reduc"}>
@@ -49,13 +49,13 @@ const Card = ({game}) => {
                         <img loading="eager" id={"image" } src={game.images} alt="" />
                     </div>
                 </Link>
-                        <div className={"name_price"}>
-                        <p ref={myRef} onClick={() => handleClick(game,myRef)}><FontAwesomeIcon icon={faHeart} /></p>
-                            <h2>{game.name}</h2>
-                            <p>{game.prix}€</p>
-                        </div>
+                <div className={"name_price"}>
+                    <p ref={myRef} onClick={() => handleClick(game,myRef)}><FontAwesomeIcon icon={faHeart} /></p>
+                    <h2>{game.name}</h2>
+                    <p>{game.prix}€</p>
                 </div>
             </div>
+        </div>
     );
 };
 

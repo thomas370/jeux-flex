@@ -10,7 +10,7 @@ const Wishlist = () => {
         <div>
             <Link to="/">
                 <button className="back-button">
-                    <FontAwesomeIcon icon={faArrowLeft} />
+                    <p><FontAwesomeIcon icon={faArrowLeft} /> Retour a l'accueil</p>
                 </button>
             </Link>
             <div className="wishList">

@@ -42,8 +42,8 @@ const Register = () => {
             alert("Les deux mots de passe ne correspondent pas.");
             return;
         }
-        if (passwordStrength !== 100) {
-            alert("Le mot de passe doit contenir au moins 8 caractères, une majuscule et un caractère spécial.");
+        if (passwordStrength < 8) {
+            alert("Il manque des caractères.");
             return;
         }
         const credential = {
