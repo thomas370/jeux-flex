@@ -1,0 +1,41 @@
+table{
+    margin: 0 auto;
+    width: 100%;
+}
+
+.dalle h1 {
+    text-align: center;
+    color:rgb(73, 45, 104);
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0 0 20px 0;
+}
+
+.dalle tr th{
+    background-color: #f5f5f5;
+    color: #000;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    width: 100px;
+    height: 20px;
+}
+
+.dalle tr td{
+    background-color: #fff;
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    width: 100px;
+    height: 50px;
+}
+
+.dalle tr td:hover{
+    background-color: #b3b0b0;
+    color: #000;
+    font-weight: bold;
+    text-align: center;
+    width: 100px;
+    height: 50px;
+}
