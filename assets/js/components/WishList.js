@@ -22,6 +22,7 @@ const Wishlist = () => {
             </Link>
             <div className="wishList">
                 <h1>Wishlist</h1>
+                {fav.length === 0 && <p>Votre Liste est vide</p>}
                 <div className="wishList-container">
                     <div className="wishList-item">
                         {fav.map((item) => (
