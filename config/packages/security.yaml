@@ -41,7 +41,7 @@ security:
         - { path: ^/api/users, roles: ROLE_ADMIN, methods: [ GET, PUT, DELETE, PATCH ] }
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/Backoffice, roles: ROLE_ADMIN }
-        
+        - { path: ^/api, roles: ROLE_ADMIN }
 
 when@test:
     security:

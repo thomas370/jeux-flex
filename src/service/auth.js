@@ -26,7 +26,7 @@ export const setup = () => {
     }
 };
 
-export const getRoles = () => {
+export const getRoles = () => { 
     const token = window.localStorage.getItem("token");
     if (token) {
         const { exp: expiration, roles: roles } = jwtDecode(token);
