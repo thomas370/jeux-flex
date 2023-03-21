@@ -37,6 +37,7 @@ const router = createHashRouter([{
 
 
 
+
 if (document.getElementById("root")) {
     const rootAppElement = document.getElementById("root");
     const rootApp = createRoot(rootAppElement);
