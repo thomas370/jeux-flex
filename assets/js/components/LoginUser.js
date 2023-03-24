@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../../styles/login.css';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faEye} from "@fortawesome/free-solid-svg-icons";
 import { setup } from '../../../src/service/auth';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
@@ -30,7 +30,7 @@ const loginUser = () => {
             console.log(error.response.data);
         }
     }
-    
+
 
     return (
         <div>
@@ -46,7 +46,12 @@ const loginUser = () => {
                         <input type="text" placeholder='Email' onChange={e => setEmail(e.target.value)} />
                     </label>
                     <label>
-                        <input type="password" placeholder='Mot de passe' onChange={e => setPassword(e.target.value)} />
+                        <div className='eye'>
+                            <input type="password" placeholder='Mot de passe' id="password" onChange={e => setPassword(e.target.value)} />
+                            <div className='eyes'>
+                                <FontAwesomeIcon icon={faEye} onMouseOver={e => document.getElementById("password").type = "text"} onMouseOut={e => { document.getElementById("password").type = "password"; e.target.classList.remove("fa-eye-slash"); }} />
+                            </div>
+                        </div>
                     </label>
                     <div>
                         <button type="submit">Envoyer</button>
