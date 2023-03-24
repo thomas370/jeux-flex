@@ -91,6 +91,9 @@ const Register = () => {
                 <div>
                     <button type="submit">Envoyer</button>
                 </div>
+                <div>
+                    
+                </div>
             </form>
             <p>Se connecter ? <Link  to="/LoginUser">Connexion</Link></p>
         </div>

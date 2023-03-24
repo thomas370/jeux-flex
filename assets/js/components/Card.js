@@ -46,7 +46,7 @@ const Card = ({game}) => {
                             <p>-{game.reduction}%</p>
                         </div>
                         <video loading="eager" id={"video" } src={game.video} controls={false} autoPlay={true} loop={true} muted={true} />
-                        <img loading="eager" id={"image" } src={game.images} alt="" />
+                        <img loading="eager" id={"image" } src={game.images} alt="image du jeux" />
                     </div>
                 </Link>
                         <div className={"name_price"}>

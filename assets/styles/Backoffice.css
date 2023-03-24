@@ -31,11 +31,6 @@ table{
     height: 50px;
 }
 
-.dalle tr td:hover{
-    background-color: #b3b0b0;
-    color: #000;
-    font-weight: bold;
-    text-align: center;
-    width: 100px;
-    height: 50px;
+.dalle tr:nth-child(odd) {
+    background-color: #ffffff;
 }
