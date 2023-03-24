@@ -8,7 +8,7 @@ table{
     color:rgb(73, 45, 104);
     font-size: 20px;
     font-weight: normal;
-    margin: 0 0 20px 0;
+    margin: 20px ;
 }
 
 .dalle tr th{
@@ -33,4 +33,22 @@ table{
 
 .dalle tr:nth-child(odd) {
     background-color: #ffffff;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+}
+
+.flex a{
+    padding: 5px;
+    border-radius: 3px;
+    border: none;
+    background-color: rgb(73, 45, 104);
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
 }

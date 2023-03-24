@@ -33,6 +33,16 @@ const Backoffice = () => {
       <Nav />
       <div className="dalle">
         <h1>Backoffice</h1>
+        <div className="flex">
+            <div className="search">
+              <input type="text" placeholder="Rechercher un jeu" onChange={(e) => {
+                setSearchResult(games.filter(game => game.name.toLowerCase().includes(e.target.value.toLowerCase())))
+              }} />
+            </div>
+            <div className="add">
+              <a href="/add">Ajouter un jeu</a>
+            </div>
+        </div>
         <table>
           <thead>
             <tr>
@@ -59,7 +69,7 @@ const Backoffice = () => {
                 <td>{game.id_type?.type}</td>
                 <td>{game.id_plat?.platform}</td>
                 <td>{game.editeur}</td>
-                <td>{game.date}</td>
+                <td>{game.date?.split('T')[0]}</td>
                 <td>{game.prix}€</td>
                 <td>{game.reduction}%</td>
                 <td>{game.stock}</td>
