@@ -24,8 +24,8 @@ const Fiches = () => {
             navigate('/LoginUser'); // rediriger l'utilisateur vers la page de connexion
         } else {
         const newCart = JSON.parse(localStorage.getItem("cart")) || [];
-        const itemInCart = newCart.find((item) => item.id === game.id);
-        if (itemInCart) {
+        const itemInCart = newCart.find((item) => item.id === game.id);// si l'item est déjà dans le panier
+        if (itemInCart) { 
             itemInCart.quantity++;
         } else {
             newCart.push({
