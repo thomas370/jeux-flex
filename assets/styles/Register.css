@@ -72,6 +72,18 @@ p {
   background-color: #18701b;
   border-radius: 5px;
 }
+
+.eye {
+  display:flex;
+}
+
+.eyes {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  font-size: 20px;
+}
 /*MEDIA SCREEN*/
 
 /* Largeur d'écran inférieure à 600px */
