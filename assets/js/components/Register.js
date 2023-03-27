@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faEye, faEyeSlash, } from '@fortawesome/free-solid-svg-icons';
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { getRoles } from '../../../src/service/auth';
+
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -63,7 +63,9 @@ const Register = () => {
     } catch (error) {
       console.log(error.response.data);
       console.log(error.response.data.violations.map((violation) => violation.message));
+      console.log(error.response.statusText)
       setEmailError(error.response.data.violations.map((violation) => violation.message));
+
     }
   };
 

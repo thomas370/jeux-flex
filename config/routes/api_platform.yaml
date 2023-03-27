@@ -5,3 +5,8 @@ api_platform:
     defaults:
         pagination_items_per_page: 100
         pagination_maximum_items_per_page: 100
+        put:
+            normalization_context:
+                api_gateway: true
+            extraProperties:
+                standard_put: true

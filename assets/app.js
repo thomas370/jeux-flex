@@ -9,6 +9,7 @@ import LoginUser from "./js/components/LoginUser";
 import Register from "./js/components/Register";
 import BackOffice from "./js/components/Backoffice";
 import WishList from "./js/components/WishList";
+import AddGame from "./js/components/AddGame";
 
 
 const router = createHashRouter([{
@@ -32,6 +33,9 @@ const router = createHashRouter([{
 },{
     path: 'WishList',
     element : <WishList />,
+},{
+    path: 'AddGame',
+    element : <AddGame />,
 }
 ]);
 
