@@ -23,7 +23,7 @@ class BackOfficeController extends AbstractController
             throw new AccessDeniedException('Accès limité aux administrateurs.');
         }
 
-        return $this->render('backoffice/index.html.twig', [
+        return $this->render('Backoffice', [
             'controller_name' => 'BackOfficeController',
         ]);
     }
