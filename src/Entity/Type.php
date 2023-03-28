@@ -32,6 +32,7 @@ class Type
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(["type_read"])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
