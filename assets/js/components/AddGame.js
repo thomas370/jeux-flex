@@ -7,13 +7,13 @@ import axios from "axios";
 
 const AddGame = () => {
     const [platforms, setPlatforms] = useState([]);
-    const [genres, setGenres] = useState([]);
+    const [types, setTypes] = useState([]);
 
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [date, setDate] = useState('');
-    const [platform, setPlat] = useState('');
-    const [genre, setCate] = useState('');
+    const [id_plat_id, setPlat] = useState('');
+    const [id_type_id, setCate] = useState('');
     const [prix, setPrice] = useState('');
     const [reduction, setReduc] = useState('');
     const [images, setImage] = useState('');
@@ -25,18 +25,18 @@ const AddGame = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const game = {
-            name,
-            description,
-            date,
-            platform,
-            genre,
-            prix,
-            reduction,
-            images,
-            images_fond,
-            video,
-            stock,
-            editeur
+            name : name,
+            description : description,
+            date : date,
+            id_plat_id : id_plat_id,
+            id_type_id : id_type_id,
+            prix : prix,
+            reduction : reduction,
+            images : images,
+            images_fond : images_fond,
+            video : video,
+            stock : stock,
+            editeur : editeur
         }
         try {
             const response = await axios.post(
@@ -46,7 +46,7 @@ const AddGame = () => {
             console.log(response);
         } catch (error) {
             console.log(error.response.data);
-            console.log(name, description, date, platform, genre, prix, reduction, images, images_fond, video, stock, editeur)
+            console.log(name, description, date, id_plat_id, id_type_id, prix, reduction, images, images_fond, video, stock, editeur)
         }
     }
     const fetchPlatforms = async () => {
@@ -55,15 +55,15 @@ const AddGame = () => {
         setPlatforms(data['hydra:member']);
     }
 
-    const fetchGenres = async () => {
+    const fetchType = async () => {
         const response = await fetch('http://localhost:8000/api/types');
         const data = await response.json();
-        setGenres(data['hydra:member']);
+        setTypes(data['hydra:member']);
     }
 
     useEffect(() => {
         fetchPlatforms().then(r => console.log(platforms));
-        fetchGenres().then(r => console.log(genres));
+        fetchType().then(r => console.log(types));
     }, []);
 
     return (
@@ -113,8 +113,8 @@ const AddGame = () => {
                         <input type="date" name="date" id="releaseDate" className="form-control" placeholder="Date de sortie du jeu" required onChange={e => setDate(e.target.value)}/>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="platform">Plateforme</label>
-                        <select name="platform" id="platform" className="form-control" required onChange={e => setPlat (e.target.value)}>
+                        <label htmlFor="id_plat_id">Plateforme</label>
+                        <select name="id_plat_id" id="id_plat_id" className="form-control" required onChange={e => setPlat (e.target.value)}>
                             <option value={""} className={"form-control"}>Choisissez une plateforme</option>
                             {platforms.map((platform) => (
                                 <option key={platform.id} value={platform.id} className={"form-control"}>{platform.platform}</option>
@@ -122,11 +122,11 @@ const AddGame = () => {
                         </select>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="category">Catégorie</label>
-                        <select name="category" id="category" className="form-control" required onChange={e => setCate (e.target.value)}>
+                        <label htmlFor="id_type_id">Catégorie</label>
+                        <select name="id_type_id" id="id_type_id" className="form-control" required onChange={e => setCate (e.target.value)}>
                             <option value={""} className={"form-control"}>Choisissez une catégorie</option>
-                            {genres.map((genre) => (
-                                <option key={genre.id} value={genre.id} className={"form-control"}>{genre.type}</option>
+                            {types.map((type) => (
+                                <option key={type.id} value={type.id} className={"form-control"}>{type.type}</option>
                             ))}
                         </select>
                     </div>
