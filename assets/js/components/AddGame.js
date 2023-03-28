@@ -12,31 +12,33 @@ const AddGame = () => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [date, setDate] = useState('');
-    const [id_plat_id, setPlat] = useState('');
-    const [id_type_id, setCate] = useState('');
+    const [idPlat, setPlat] = useState('');
+    const [idType, setCate] = useState('');
     const [prix, setPrice] = useState('');
     const [reduction, setReduc] = useState('');
     const [images, setImage] = useState('');
-    const [images_fond, setFond] = useState('');
+    const [imagesFond, setFond] = useState('');
     const [video, setVideo] = useState('');
     const [stock, setStock] = useState('');
     const [editeur, setEditeur] = useState('');
 
-    const handleSubmit = async (e) => {
+    const [platforme, setPlatform] = useState('');
+    const [typees, setType] = useState('');
+    const handleSubmitgame = async (e) => {
         e.preventDefault();
         const game = {
-            name : name,
-            description : description,
-            date : date,
-            id_plat_id : id_plat_id,
-            id_type_id : id_type_id,
-            prix : prix,
-            reduction : reduction,
-            images : images,
-            images_fond : images_fond,
-            video : video,
-            stock : stock,
-            editeur : editeur
+            name,
+            description,
+            date,
+            idPlat: `api/platforms/${idPlat}`,
+            idType: `api/types/${idType}`,
+            prix,
+            reduction,
+            images,
+            imagesFond,
+            video,
+            stock,
+            editeur
         }
         try {
             const response = await axios.post(
@@ -46,25 +48,62 @@ const AddGame = () => {
             console.log(response);
         } catch (error) {
             console.log(error.response.data);
-            console.log(name, description, date, id_plat_id, id_type_id, prix, reduction, images, images_fond, video, stock, editeur)
+            console.log(name, description, date, idPlat, idType, prix, reduction, images, imagesFond, video, stock, editeur)
         }
     }
     const fetchPlatforms = async () => {
         const response = await fetch('http://localhost:8000/api/platforms');
         const data = await response.json();
         setPlatforms(data['hydra:member']);
+        console.log(data['hydra:member'])
     }
 
     const fetchType = async () => {
         const response = await fetch('http://localhost:8000/api/types');
         const data = await response.json();
         setTypes(data['hydra:member']);
+        console.log(data['hydra:member'])
     }
 
     useEffect(() => {
         fetchPlatforms().then(r => console.log(platforms));
         fetchType().then(r => console.log(types));
     }, []);
+
+
+    const handleSubmitplatform = async (e) => {
+        e.preventDefault();
+        const platform = {
+            platform : platforme
+        }
+        try {
+            const response = await axios.post(
+                "http://localhost:8000/api/platforms",
+                platform
+            );
+            console.log(response);
+        } catch (error) {
+            console.log(error.response.data);
+            console.log(platform)
+        }
+    }
+
+    const handleSubmittype = async (e) => {
+        e.preventDefault();
+        const type = {
+            type : typees
+        }
+        try {
+            const response = await axios.post(
+                "http://localhost:8000/api/types",
+                type
+            );
+            console.log(response);
+        } catch (error) {
+            console.log(error.response.data);
+            console.log(type)
+        }
+    }
 
     return (
         <div>
@@ -73,9 +112,10 @@ const AddGame = () => {
                     <p><FontAwesomeIcon icon={faArrowLeft} /> Retour </p>
                 </button>
             </Link>
+            <div className="addall">
             <div className="addgame">
                 <h1>Ajouter un jeu</h1>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmitgame}>
                      <div className="form-group">
                         <label htmlFor="name">Nom du jeu</label>
                         <input type="text" name="name" id="name" className="form-control" placeholder="Nom du jeu" required onChange={e => setName(e.target.value)}/>
@@ -98,7 +138,7 @@ const AddGame = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="images_fond">Image fond</label>
-                        <input type="url" name="images_fond" id="images_fond" placeholder="https://example.com" pattern="https://.*" required onChange={e => setFond(e.target.value)}/>
+                        <input type="url" name="imagesFond" id="imagesFond" placeholder="https://example.com" pattern="https://.*" required onChange={e => setFond(e.target.value)}/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="Video">Video</label>
@@ -114,16 +154,16 @@ const AddGame = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="id_plat_id">Plateforme</label>
-                        <select name="id_plat_id" id="id_plat_id" className="form-control" required onChange={e => setPlat (e.target.value)}>
-                            <option value={""} className={"form-control"}>Choisissez une plateforme</option>
+                        <select name="id_plat_id" id="id_plat_id" className="form-control" required onChange={e => setPlat(e.target.value)}>
+                            <option value="">Choisissez une plateforme</option>
                             {platforms.map((platform) => (
-                                <option key={platform.id} value={platform.id} className={"form-control"}>{platform.platform}</option>
+                                <option key={platform.id} value={platform.id}>{platform.platform}</option>
                             ))}
                         </select>
                     </div>
                     <div className="form-group">
                         <label htmlFor="id_type_id">Catégorie</label>
-                        <select name="id_type_id" id="id_type_id" className="form-control" required onChange={e => setCate (e.target.value)}>
+                        <select name="id_type_id" id="id_type_id" className="form-control" required onChange={e => setCate(e.target.value)}>
                             <option value={""} className={"form-control"}>Choisissez une catégorie</option>
                             {types.map((type) => (
                                 <option key={type.id} value={type.id} className={"form-control"}>{type.type}</option>
@@ -136,6 +176,28 @@ const AddGame = () => {
                     </div>
                     <button type="submit" className="btn btn-primary">Ajouter</button>
                 </form>
+</div>
+                <div className="addgame">
+                    <h1>Ajouter une platforme</h1>
+                    <form onSubmit={handleSubmitplatform}>
+                        <div className="form-group">
+                            <label htmlFor="platform">Nom de la platform</label>
+                            <input type="text" name="platform" id="platform" className="form-control" placeholder="platform" required onChange={e => setPlatform(e.target.value)}/>
+                        </div>
+                        <button type="submit" className="btn btn-primary">Ajouter</button>
+                    </form>
+                </div>
+                <div className="addgame">
+                    <h1>Ajouter un type de jeux </h1>
+                    <form onSubmit={handleSubmittype}>
+                        <div className="form-group">
+                            <label htmlFor="type">type</label>
+                            <input type="text" name="type" id="type" className="form-control" placeholder="type de jeux (action)" required onChange={e => setType(e.target.value)}/>
+                        </div>
+                        <button type="submit" className="btn btn-primary">Ajouter</button>
+                    </form>
+
+                </div>
             </div>
         </div>
     );

@@ -1,4 +1,8 @@
 
+.addall{
+    display: flex;
+}
+
 .addgame {
     width: 90%;
     max-width: 600px;
