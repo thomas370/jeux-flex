@@ -7,7 +7,7 @@ const Panier = () => {
   const [panier, setPanier] = useState(JSON.parse(localStorage.getItem('cart')) || []);
 
   const handleDelete = (id) => {
-    const itemIndex = panier.findIndex((item) => item.id === item.id);
+    const itemIndex = panier.findIndex((item) => item.id === id);
     if (itemIndex === -1) return;
     const newPanier = [...panier];
     newPanier.splice(itemIndex, 1);
