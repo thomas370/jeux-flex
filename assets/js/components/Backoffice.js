@@ -23,12 +23,19 @@ const Backoffice = () => {
         setSearchResult(games)
     }, [games]);
 
-    /*useEffect(() => {
+
+    //si le user n'a pas le role admin il est redirigé vers la page d'accueil
+    useEffect(() => {
         const token = localStorage.getItem('token');
         if (!token) {
             Navigate('/LoginUser');
+        } else {
+            const role = localStorage.getItem('role');
+            if (role !== 'ROLE_ADMIN') {
+                Navigate('/');
+            }
         }
-    }, []);*/
+    }, []);
 
     const handleDelete = async (id) => {
         if (window.confirm("Voulez-vous vraiment supprimer ce jeu ?")) {
@@ -78,7 +85,7 @@ const Backoffice = () => {
                     </tr>
                     </thead>
                     <tbody>
-                    {/* faire une boucle pour afficher tout les articles */}
+                    <React.Suspense fallback={<div>Loading...</div>}>
                     {searchResult.map(game => (
                         <tr key={game.id}>
                             <td>{game.id}</td>
@@ -99,6 +106,7 @@ const Backoffice = () => {
                             </td>
                         </tr>
                     ))}
+                    </React.Suspense>
                     </tbody>
                 </table>
             </div>

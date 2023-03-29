@@ -1,6 +1,7 @@
 
 .addall{
     display: flex;
+    flex-wrap: wrap;
 }
 
 .addgame {
@@ -54,6 +55,7 @@
     background-color: #007bff;
     cursor: pointer;
 }
+
 
 @media screen and (max-width: 600px) {
     /* Réduction de la taille des éléments sur les petits écrans */
