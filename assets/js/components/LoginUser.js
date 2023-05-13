@@ -3,7 +3,7 @@ import '../../styles/login.css';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faEye} from "@fortawesome/free-solid-svg-icons";
-import { setup } from '../../../src/service/auth';
+import { setup, getRoles } from '../../../src/service/auth';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
@@ -22,6 +22,7 @@ const loginUser = () => {
             const response = await axios.post('http://localhost:8000/api/login', credential).then(response => response.data.token).then(token => {
                 window.localStorage.setItem('token', token);
                 setup();
+                getRoles();
                 return jwtDecode(token);
             });
             window.location.href = "/";

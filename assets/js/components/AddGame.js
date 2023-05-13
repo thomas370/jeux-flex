@@ -24,6 +24,8 @@ const AddGame = () => {
 
     const [platforme, setPlatform] = useState('');
     const [typees, setType] = useState('');
+
+    //submit game
     const handleSubmitgame = async (e) => {
         e.preventDefault();
         const game = {
@@ -51,6 +53,8 @@ const AddGame = () => {
             console.log(name, description, date, idPlat, idType, prix, reduction, images, imagesFond, video, stock, editeur)
         }
     }
+
+    //recupération des plateformes et types
     const fetchPlatforms = async () => {
         const response = await fetch('http://localhost:8000/api/platforms');
         const data = await response.json();
@@ -70,7 +74,7 @@ const AddGame = () => {
         fetchType().then(r => console.log(types));
     }, []);
 
-
+    //submit platform
     const handleSubmitplatform = async (e) => {
         e.preventDefault();
         const platform = {
@@ -88,6 +92,19 @@ const AddGame = () => {
         }
     }
 
+    //déléte platform
+    const handleDeletePlatform = async (id) => {
+        try {
+            const response = await axios.delete(
+                `http://localhost:8000/api/platforms/${id}`
+            );
+            console.log(response);
+        } catch (error) {
+            console.log(error.response.data);
+        }
+    }
+
+    //submit type
     const handleSubmittype = async (e) => {
         e.preventDefault();
         const type = {
@@ -102,6 +119,18 @@ const AddGame = () => {
         } catch (error) {
             console.log(error.response.data);
             console.log(type)
+        }
+    }
+
+    //déléte type
+    const handleDeleteType = async (id) => {
+        try {
+            const response = await axios.delete(
+                `http://localhost:8000/api/types/${id}`
+            );
+            console.log(response);
+        } catch (error) {
+            console.log(error.response.data);
         }
     }
 
@@ -186,6 +215,24 @@ const AddGame = () => {
                         </div>
                         <button type="submit" className="btn btn-primary">Ajouter</button>
                     </form>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>platform</th>
+                                <th>supprimer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {platforms.map((platform) => (
+                                <tr key={platform.id}>
+                                    <td>{platform.id}</td>
+                                    <td>{platform.platform}</td>
+                                    <td><button onClick={() => deletePlatform(platform.id)}>Supprimer</button></td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
                 <div className="addgame">
                     <h1>Ajouter un type de jeux </h1>
@@ -196,6 +243,24 @@ const AddGame = () => {
                         </div>
                         <button type="submit" className="btn btn-primary">Ajouter</button>
                     </form>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>type</th>
+                                <th>supprimer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {types.map((type) => (
+                                <tr key={type.id}>
+                                    <td>{type.id}</td>
+                                    <td>{type.type}</td>
+                                    <td><button onClick={() => handleDeleteType(type.id)}>supprimé</button></td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
 
                 </div>
             </div>
