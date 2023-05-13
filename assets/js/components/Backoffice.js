@@ -23,12 +23,12 @@ const Backoffice = () => {
         setSearchResult(games)
     }, [games]);
 
-    /*useEffect(() => {
+    useEffect(() => {
         const token = localStorage.getItem('token');
         if (!token) {
             Navigate('/LoginUser');
         }
-    }, []);*/
+    }, []);
 
     const handleDelete = async (id) => {
         if (window.confirm("Voulez-vous vraiment supprimer ce jeu ?")) {
