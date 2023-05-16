@@ -1,6 +1,7 @@
 import React from 'react';
-import {createRoot} from "react-dom/client";
-import { createHashRouter, RouterProvider,} from "react-router-dom";
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
 import './styles/app.css';
 import Home from './js/components/Home';
 import Panier from './js/components/Panier';
@@ -11,44 +12,35 @@ import BackOffice from "./js/components/Backoffice";
 import WishList from "./js/components/WishList";
 import AddGame from "./js/components/AddGame";
 
-
-const router = createHashRouter([{
-    path: '/',
-    element : <Home />,
-}, {
-    path: 'Panier',
-    element : <Panier />,
-}, {
-    path: 'Fiches/:id',
-    element : <Fiches />,
-}, {
-    path: 'LoginUser',
-    element : <LoginUser />,
-},{
-    path: 'Register',
-    element : <Register />,
-},{
-    path: 'Backoffice',
-    element : <BackOffice />,
-},{
-    path: 'WishList',
-    element : <WishList />,
-},{
-    path: 'AddGame',
-    element : <AddGame />,
+function isAdmin() {
+    const token = window.localStorage.getItem('token');
+    console.log('Token:', token);
+    if (!token) {
+        return false;
+    }
+    const decodedToken = jwtDecode(token);
+    console.log('Decoded token:', decodedToken);
+    return decodedToken.roles && decodedToken.roles.includes('ROLE_ADMIN');
 }
-]);
 
-
-
-
-if (document.getElementById("root")) {
-    const rootAppElement = document.getElementById("root");
-    const rootApp = createRoot(rootAppElement);
-    rootApp.render(
-        <>
-            <RouterProvider router={router} />
-        </>
-    )
-    ;
+function PrivateRoute({ children }) {
+    return (
+        isAdmin() ? children : <Navigate to="/LoginUser" />
+    );
 }
+
+ReactDOM.render(
+    <Router>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="Panier" element={<Panier />} />
+            <Route path="Fiches/:id" element={<Fiches />} />
+            <Route path="LoginUser" element={<LoginUser />} />
+            <Route path="Register" element={<Register />} />
+            <Route path="Backoffice" element={<PrivateRoute><BackOffice /></PrivateRoute>} />
+            <Route path="WishList" element={<WishList />} />
+            <Route path="AddGame" element={<PrivateRoute><AddGame /></PrivateRoute>} />
+        </Routes>
+    </Router>,
+    document.getElementById("root")
+);

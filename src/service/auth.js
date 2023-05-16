@@ -9,16 +9,18 @@ export const logout = () => {
     console.log("logout")
     window.localStorage.removeItem("token");
     delete axios.defaults.headers["Authorization"];
-    window.location.reload();
+    window.location.href = '/';
 };
 
-export const setup = () => {//
+export const setup = () => {
     let token = window.localStorage.getItem("token");
     if (token) {
-        const { exp: expiration, roles: roles } = jwtDecode(token);
+        const { exp: expiration, Roles: Roles } = jwtDecode(token);
+        console.log('Expiration:', expiration);
+        console.log('Roles:', Roles);
         if (expiration * 1000 > new Date().getTime()) {
             setAxiosToken(token);
-            return roles;
+            return Roles;
         } else {
             logout();
             return false;
@@ -39,12 +41,14 @@ export const isAuthenticated = () => {
     return false;
 };
 
-export const getRoles = () => { 
+export const getRoles = () => {
     const token = window.localStorage.getItem("token");
     if (token) {
-        const { exp: expiration, roles: roles } = jwtDecode(token);
+        const { exp: expiration, roles: Roles } = jwtDecode(token);
+        console.log('Expiration:', expiration);
+        console.log('Roles:', Roles);
         if (expiration * 1000 > new Date().getTime()) {
-            return roles;
+            return Roles;
         }
     }
 };
