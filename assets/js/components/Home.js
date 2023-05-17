@@ -29,7 +29,7 @@ const Home = () => {
                 <h2>Tous nos jeux </h2>
             </div>
             <div className={"Containerisation"}>
-                <React.Suspense fallback={<div>Loading...</div>}> <!-- fallback pour le lazy loading / Attendre que les card charge / -->
+                <React.Suspense fallback={<div>Loading...</div>}>{/* lazy loading pour les cartes */}
                     {searchResult.map(game => <Card key={game.id} game={game}/>)}
                 </React.Suspense>
             </div>

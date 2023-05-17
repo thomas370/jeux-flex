@@ -4,13 +4,13 @@ import '../../styles/Backoffice.css'
 import Nav from "./Nav";
 
 const Backoffice = () => {
-    const Navigate = useNavigate();<!--  -->
-    const [games, setGames] = useState([]);<!--  -->
+    const Navigate = useNavigate();
+    const [games, setGames] = useState([]);
     const [searchResult, setSearchResult] = useState([]);
     const [selectedGameId, setSelectedGameId] = useState(null);
 
 
-    const fetchGames = async () => {<!--Recuperation des jeux -->
+    const fetchGames = async () => {
         const response = await fetch('http://localhost:8000/api/jeuxes');
         const data = await response.json();
         setGames(data['hydra:member']);
@@ -73,7 +73,7 @@ const Backoffice = () => {
                         </Link>
                     </div>
                 </div>
-                <table><!-- tableau des jeux -->
+                <table>
                     <thead>
                     <tr>
                         <th>Id</th>
@@ -91,7 +91,7 @@ const Backoffice = () => {
                     </tr>
                     </thead>
                     <tbody>
-                    <React.Suspense fallback={<div>Loading...</div>}><!--Suspense pour attendre le chagement des jeux -->
+                    <React.Suspense fallback={<div>Loading...</div>}> {/* lazy loading pour les cartes */}
                     {searchResult.map(game => (
                         <tr key={game.id}>
                             <td>{game.id}</td>

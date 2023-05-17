@@ -140,13 +140,13 @@ const AddGame = () => {
         <div>
             <Link to="/Backoffice">
                 <button className="back-button">
-                    <p><FontAwesomeIcon icon={faArrowLeft} /> Retour </p> <!-- Bouton pour revenir au backoffice -->
+                    <p><FontAwesomeIcon icon={faArrowLeft} /> Retour </p>
                 </button>
             </Link>
             <div className="addall">
             <div className="addgame">
                 <h1>Ajouter un jeu</h1>
-                <form onSubmit={handleSubmitgame}> <!-- Formulaire pour ajouter un jeu -->
+                <form onSubmit={handleSubmitgame}> {/* Formulaire pour ajouter un jeu */}
                      <div className="form-group">
                         <label htmlFor="name">Nom du jeu</label>
                         <input type="text" name="name" id="name" className="form-control" placeholder="Nom du jeu" required onChange={e => setName(e.target.value)}/>
@@ -210,7 +210,7 @@ const AddGame = () => {
 </div>
                 <div className="addgame">
                     <h1>Ajouter une platforme</h1>
-                    <form onSubmit={handleSubmitplatform}><!-- Formulaire pour ajouter une platforme -->
+                    <form onSubmit={handleSubmitplatform}> {/* Formulaire pour ajouter une platforme */}
                         <div className="form-group">
                             <label htmlFor="platform">Nom de la platform</label>
                             <input type="text" name="platform" id="platform" className="form-control" placeholder="platform" required onChange={e => setPlatform(e.target.value)}/>
@@ -238,14 +238,14 @@ const AddGame = () => {
                 </div>
                 <div className="addgame">
                     <h1>Ajouter un type de jeux </h1>
-                    <form onSubmit={handleSubmittype}><!-- Formulaire pour ajouter un type de jeux -->
+                    <form onSubmit={handleSubmittype}> {/* Formulaire pour ajouter un type de jeux */}
                         <div className="form-group">
                             <label htmlFor="type">type</label>
                             <input type="text" name="type" id="type" className="form-control" placeholder="type de jeux (action)" required onChange={e => setType(e.target.value)}/>
                         </div>
                         <button type="submit" className="btn btn-primary">Ajouter</button>
                     </form>
-                    <table><!-- Tableau pour afficher les types de jeux -->
+                    <table>
                         <thead>
                             <tr>
                                 <th>id</th>
