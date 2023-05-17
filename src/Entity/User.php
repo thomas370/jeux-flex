@@ -34,7 +34,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-      private $id;
+    private $id;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
     private $email;
@@ -44,6 +44,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'string')]
     private $password;
+
+    #[ORM\OneToOne(mappedBy: 'id_user', cascade: ['persist', 'remove'])]
+    private ?Panier $panier = null;
 
     public function getId(): ?int
     {
@@ -124,5 +127,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getPanier(): ?Panier
+    {
+        return $this->panier;
+    }
+
+    public function setPanier(?Panier $panier): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($panier === null && $this->panier !== null) {
+            $this->panier->setIdUser(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($panier !== null && $panier->getIdUser() !== $this) {
+            $panier->setIdUser($this);
+        }
+
+        $this->panier = $panier;
+
+        return $this;
     }
 }
