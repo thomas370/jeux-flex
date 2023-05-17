@@ -28,7 +28,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
     ], // Opérations autorisées sur la ressource jeux
     normalizationContext: ['groups' => ['jeux_read']], // Groupe de lecture
     paginationItemsPerPage: 100, // Nombre d'éléments par page
-    paginationMaximumItemsPerPage: 100, // Nombre maximum d'éléments par page
+    paginationMaximumItemsPerPage: 100, // Nombre maximum d'éléments par pagecomposer require api
 )
 ]
 class Jeux

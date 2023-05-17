@@ -1,18 +1,18 @@
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 
-export const setAxiosToken = (token) => {
+export const setAxiosToken = (token) => { // Fonction qui permet d'envoyer le token dans le header de chaque requête
     axios.defaults.headers["Authorization"] = `Bearer ${token}`;
 };
 
-export const logout = () => {
+export const logout = () => { // Fonction qui permet de se déconnecter
     console.log("logout")
     window.localStorage.removeItem("token");
     delete axios.defaults.headers["Authorization"];
     window.location.href = '/';
 };
 
-export const setup = () => {
+export const setup = () => { // Fonction qui permet de vérifier si l'utilisateur est connecté
     let token = window.localStorage.getItem("token");
     if (token) {
         const { exp: expiration, Roles: Roles } = jwtDecode(token);
@@ -28,8 +28,8 @@ export const setup = () => {
     }
 };
 
-//faire une fonction qui valide si le user est authentifié 
-export const isAuthenticated = () => {
+
+export const isAuthenticated = () => { // Fonction qui permet de vérifier si l'utilisateur est connecté
     const token = window.localStorage.getItem("token");
     if (token) {
         const { exp: expiration } = jwtDecode(token);
@@ -41,7 +41,7 @@ export const isAuthenticated = () => {
     return false;
 };
 
-export const getRoles = () => {
+export const getRoles = () => { // Fonction qui permet de récupérer les rôles de l'utilisateur
     const token = window.localStorage.getItem("token");
     if (token) {
         const { exp: expiration, roles: Roles } = jwtDecode(token);
