@@ -2,37 +2,12 @@ import React, {useEffect, useState} from 'react';
 import '../../styles/Header.css';
 
 const Header = ({searchResult, games, setGames, setSearchResult}) => {
-  const [search, setSearch] = useState({
+  const [search, setSearch] = useState({ // state pour la barre de recherche
     search: "",
     price: "",
     pc: "",
     genre: "",
   });
-
-  function handleSearch() {
-    if (search.search.length >= 1) {
-      search.search.toLowerCase();
-      const result = games.filter(game => game.name.includes(search.search));
-      console.log(result)
-      setSearchResult(result);
-    }
-    if (search.price) {
-      const rangeValue = search.price.split('-');
-      const result = searchResult.filter(game => game.prix >= rangeValue[0] && game.prix <= rangeValue[1]);
-      setSearchResult(result);
-    }
-    if (search.pc) {
-      const result = searchResult.filter(game => game.id_plat?.platform === search.pc);
-      setSearchResult(result);
-    }
-    if (search.genre) {
-      const result = searchResult.filter(game => game.id_type?.type === search.genre);
-      setSearchResult(result);
-    }
-    if (search.search.length === 0 && search.price === "" && search.pc === "" && search.genre === "") {
-      setSearchResult(games);
-    }
-  }
 
   function handleReset() {
     setSearch({
@@ -44,7 +19,7 @@ const Header = ({searchResult, games, setGames, setSearchResult}) => {
     setSearchResult(games);
   }
 
-  function handleChange({currentTarget}) {
+  function handleChange({currentTarget}) { // fonction pour la barre de recherche et les filtres
     const {name, value} = currentTarget;
     setSearch({...search, [name]: value});
     if (name === "price") {

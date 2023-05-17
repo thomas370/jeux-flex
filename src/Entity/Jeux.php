@@ -14,7 +14,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
-#[ORM\Entity(repositoryClass: JeuxRepository::class)]
+#[ORM\Entity(repositoryClass: JeuxRepository::class)] // Repository pour les requêtes personnalisées
 #[ApiResource(
 
     operations: [
@@ -25,10 +25,10 @@ use Symfony\Component\Serializer\Annotation\Groups;
         new Patch(),
         new Delete()
 
-    ],
-    normalizationContext: ['groups' => ['jeux_read']],
-    paginationItemsPerPage: 100,
-    paginationMaximumItemsPerPage: 100,
+    ], // Opérations autorisées sur la ressource jeux
+    normalizationContext: ['groups' => ['jeux_read']], // Groupe de lecture
+    paginationItemsPerPage: 100, // Nombre d'éléments par page
+    paginationMaximumItemsPerPage: 100, // Nombre maximum d'éléments par page
 )
 ]
 class Jeux

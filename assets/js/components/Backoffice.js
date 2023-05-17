@@ -4,12 +4,13 @@ import '../../styles/Backoffice.css'
 import Nav from "./Nav";
 
 const Backoffice = () => {
-    const Navigate = useNavigate();
-    const [games, setGames] = useState([]);
+    const Navigate = useNavigate();<!--  -->
+    const [games, setGames] = useState([]);<!--  -->
     const [searchResult, setSearchResult] = useState([]);
+    const [selectedGameId, setSelectedGameId] = useState(null);
 
 
-    const fetchGames = async () => {
+    const fetchGames = async () => {<!--Recuperation des jeux -->
         const response = await fetch('http://localhost:8000/api/jeuxes');
         const data = await response.json();
         setGames(data['hydra:member']);
@@ -24,7 +25,7 @@ const Backoffice = () => {
     }, [games]);
 
 
-    //si le user n'a pas le role admin il est redirigé vers la page d'accueil
+    //si le user n'ai pas connecter et ou n'a pas le role admin il est redirigé vers la page d'accueil
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (!token) {
@@ -37,8 +38,13 @@ const Backoffice = () => {
         }
     }, []);
 
+    const handleModify = (id) => {//fonction pour modifier un jeu
+        setSelectedGameId(id);
+        Navigate(`/ModifyGame/${id}`);
+    };
+
     const handleDelete = async (id) => {
-        if (window.confirm("Voulez-vous vraiment supprimer ce jeu ?")) {
+        if (window.confirm("Voulez-vous vraiment supprimer ce jeu ?")) {//fonction pour supprimer un jeu avec une confirmation
             const response = await fetch(`http://localhost:8000/api/jeuxes/${id}`, {
                 method: 'DELETE',
             });
@@ -57,7 +63,7 @@ const Backoffice = () => {
                 <h1>Backoffice</h1>
                 <div className="flex">
                     <div className="search">
-                        <input type="text" placeholder="Rechercher un jeu" onChange={(e) => {
+                        <input type="text" placeholder="Rechercher un jeu" onChange={(e) => {//barre de recherche
                             setSearchResult(games.filter(game => game.name.toLowerCase().includes(e.target.value.toLowerCase())))
                         }}/>
                     </div>
@@ -67,7 +73,7 @@ const Backoffice = () => {
                         </Link>
                     </div>
                 </div>
-                <table>
+                <table><!-- tableau des jeux -->
                     <thead>
                     <tr>
                         <th>Id</th>
@@ -85,7 +91,7 @@ const Backoffice = () => {
                     </tr>
                     </thead>
                     <tbody>
-                    <React.Suspense fallback={<div>Loading...</div>}>
+                    <React.Suspense fallback={<div>Loading...</div>}><!--Suspense pour attendre le chagement des jeux -->
                     {searchResult.map(game => (
                         <tr key={game.id}>
                             <td>{game.id}</td>
@@ -99,7 +105,7 @@ const Backoffice = () => {
                             <td>{game.stock}</td>
                             <td><img loading="eager" id={"image"} src={game.images} alt="image du jeux"/></td>
                             <td>
-                                <button>Modifier</button>
+                                <button onClick={() => handleModify(game.id)}>Modifier</button>
                             </td>
                             <td>
                                 <button onClick={() => handleDelete(game.id)}>Supprimer</button>

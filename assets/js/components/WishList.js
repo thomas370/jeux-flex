@@ -5,13 +5,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const Wishlist = () => {
-    const [fav] = useState(JSON.parse(localStorage.getItem('fav')) || []);
+    const [fav, setFav] = useState(JSON.parse(localStorage.getItem('fav')) || []); // on récupère les favoris dans le localstorage
 
-    const handleDelete = (id) => {
+    const handleDelete = (id) => { // fonction pour supprimer un favoris
         const newFav = fav.filter((item) => item.id !== id);
         localStorage.setItem('fav', JSON.stringify(newFav));
-        window.location.reload();
-    }
+        setFav(newFav);  // mise à jour de l'état 'fav'
+    };
 
     return (
         <div>

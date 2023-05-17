@@ -8,32 +8,27 @@ import {faHeart} from '@fortawesome/free-regular-svg-icons';
 const Card = ({game}) => {
     const myRef = useRef(null);
 
-    useEffect(() => {
+    useEffect(() => {// on récupère les données du local storage et on les stocke dans la variable fav ou un tableau vide si il n'y a rien
         const fav = JSON.parse(window.localStorage.getItem("fav")) || [];
 
-        fav.forEach((favGame) => {
-            if (myRef.current) {
-                const gameRef = myRef.current.querySelector(`[data-id="${favGame.id}"]`);
-                if (gameRef) {
-                    gameRef.classList.add("heart-red");
-                }
-            }
-        });
-    }, []);
+        if (myRef.current && fav.some((favGame) => favGame.id === game.id)) { // si le jeu est dans le local storage on ajoute la classe heart-red
+            myRef.current.classList.add("heart-red");
+        }
+    }, [game]);
 
     const handleClick = (game, ref) => {
-        const fav = JSON.parse(window.localStorage.getItem("fav")) || [];
+        const fav = JSON.parse(window.localStorage.getItem("fav")) || []; // on récupère les données du local storage et on les stocke dans la variable fav ou un tableau vide si il n'y a rien
 
-        const index = fav.findIndex((favGame) => favGame.id === game.id);
+        const index = fav.findIndex((favGame) => favGame.id === game.id);// on cherche si le jeu est dans le local storage
 
         if(index !== -1) {
-            ref.current.classList.remove("heart-red");
+            ref.current.classList.remove("heart-red"); // si le jeu est dans le local storage on supprime la classe heart-red
             const newFav = fav.filter((item) => item.id !== game.id);
-            window.localStorage.setItem("fav", JSON.stringify(newFav));
+            window.localStorage.setItem("fav", JSON.stringify(newFav));// on supprime le jeu du local storage
         } else {
-            ref.current.classList.add("heart-red");
+            ref.current.classList.add("heart-red");// si le jeu n'est pas dans le local storage on ajoute la classe heart-red
             fav.push(game);
-            window.localStorage.setItem("fav", JSON.stringify(fav));
+            window.localStorage.setItem("fav", JSON.stringify(fav));// on ajoute le jeu dans le local storage
         }
     };
 
@@ -52,7 +47,7 @@ const Card = ({game}) => {
                     </div>
                 </Link>
                 <div className={"name_price"}>
-                    <p ref={myRef} onClick={() => handleClick(game, myRef)}><FontAwesomeIcon icon={faHeart}/></p>
+                    <p ref={myRef} data-id={game.id} onClick={() => handleClick(game, myRef)}><FontAwesomeIcon icon={faHeart}/></p>
                     <h2>{game.name}</h2>
                     <p>{game.prix}€</p>
                 </div>

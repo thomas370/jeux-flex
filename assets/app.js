@@ -12,23 +12,23 @@ import BackOffice from "./js/components/Backoffice";
 import WishList from "./js/components/WishList";
 import AddGame from "./js/components/AddGame";
 
-function isAdmin() {
+function isAdmin() { // fonction pour vérifier si l'utilisateur est admin
     const token = window.localStorage.getItem('token');
     console.log('Token:', token);
-    if (!token) {
+    if (!token) { // si pas de token, on retourne false
         return false;
     }
-    const decodedToken = jwtDecode(token);
+    const decodedToken = jwtDecode(token); // on décode le token
     console.log('Decoded token:', decodedToken);
-    return decodedToken.roles && decodedToken.roles.includes('ROLE_ADMIN');
+    return decodedToken.roles && decodedToken.roles.includes('ROLE_ADMIN'); // on retourne true si le rôle est admin
 }
 
-function PrivateRoute({ children }) {
+function PrivateRoute({ children }) { // fonction pour les routes privées
     return (
-        isAdmin() ? children : <Navigate to="/LoginUser" />
+        isAdmin() ? children : <Navigate to="/LoginUser" /> // si l'utilisateur est admin, on affiche la page, sinon on redirige vers la page de connexion
     );
 }
-
+// les routes
 ReactDOM.render(
     <Router>
         <Routes>

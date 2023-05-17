@@ -6,26 +6,27 @@ import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 const AddGame = () => {
-    const [platforms, setPlatforms] = useState([]);
-    const [types, setTypes] = useState([]);
+    const [platforms, setPlatforms] = useState([]); // Ont créer un state pour stocker les plateformes
+    const [types, setTypes] = useState([]); // Ont créer un state pour stocker les types de jeux
 
-    const [name, setName] = useState('');
-    const [description, setDescription] = useState('');
-    const [date, setDate] = useState('');
-    const [idPlat, setPlat] = useState('');
-    const [idType, setCate] = useState('');
-    const [prix, setPrice] = useState('');
-    const [reduction, setReduc] = useState('');
-    const [images, setImage] = useState('');
-    const [imagesFond, setFond] = useState('');
-    const [video, setVideo] = useState('');
-    const [stock, setStock] = useState('');
-    const [editeur, setEditeur] = useState('');
+    const [name, setName] = useState(''); // Ont créer un state pour stocker le nom du jeu
+    const [description, setDescription] = useState(''); // Ont créer un state pour stocker la description du jeu
+    const [date, setDate] = useState(''); // Ont créer un state pour stocker la date de sortie du jeu
+    const [idPlat, setPlat] = useState(''); // Ont créer un state pour stocker l'id de la plateforme du jeu
+    const [idType, setCate] = useState(''); // Ont créer un state pour stocker l'id du type de jeu
+    const [prix, setPrice] = useState(''); // Ont créer un state pour stocker le prix du jeu
+    const [reduction, setReduc] = useState(''); // Ont créer un state pour stocker la reduction du jeu
+    const [images, setImage] = useState(''); // Ont créer un state pour stocker l'image du jeu
+    const [imagesFond, setFond] = useState(''); // Ont créer un state pour stocker l'image de fond du jeu
+    const [video, setVideo] = useState(''); // Ont créer un state pour stocker la video du jeu
+    const [stock, setStock] = useState(''); // Ont créer un state pour stocker le stock du jeu
+    const [editeur, setEditeur] = useState(''); // Ont créer un state pour stocker l'editeur du jeu
 
-    const [platforme, setPlatform] = useState('');
-    const [typees, setType] = useState('');
+    const [platforme, setPlatform] = useState(''); // Ont créer un state pour stocker le nom de la plateforme
+    const [typees, setType] = useState(''); // Ont créer un state pour stocker le nom du type de jeu
 
-    //submit game
+
+    //Fonction pour envoyer les donnés du formulaire de création de jeu
     const handleSubmitgame = async (e) => {
         e.preventDefault();
         const game = {
@@ -42,19 +43,19 @@ const AddGame = () => {
             stock,
             editeur
         }
-        try {
+        try { // Ont essaye d'envoyer les donnés du formulaire de création de jeu avec axios
             const response = await axios.post(
                 "http://localhost:8000/api/jeuxes",
                 game
             );
             console.log(response);
-        } catch (error) {
+        } catch (error) { // Si ont a une erreur ont l'affiche dans la console
             console.log(error.response.data);
             console.log(name, description, date, idPlat, idType, prix, reduction, images, imagesFond, video, stock, editeur)
         }
     }
 
-    //recupération des plateformes et types
+    //recupération des plateformes
     const fetchPlatforms = async () => {
         const response = await fetch('http://localhost:8000/api/platforms');
         const data = await response.json();
@@ -62,6 +63,7 @@ const AddGame = () => {
         console.log(data['hydra:member'])
     }
 
+    //recupération des types de jeux
     const fetchType = async () => {
         const response = await fetch('http://localhost:8000/api/types');
         const data = await response.json();
@@ -69,12 +71,12 @@ const AddGame = () => {
         console.log(data['hydra:member'])
     }
 
-    useEffect(() => {
+    useEffect(() => { // Ont utilise useEffect pour executer les fonctions fetchPlatforms et fetchType
         fetchPlatforms().then(r => console.log(platforms));
         fetchType().then(r => console.log(types));
     }, []);
 
-    //submit platform
+    //Fonction pour envoyer les donnés du formulaire de création de plateforme
     const handleSubmitplatform = async (e) => {
         e.preventDefault();
         const platform = {
@@ -82,17 +84,17 @@ const AddGame = () => {
         }
         try {
             const response = await axios.post(
-                "http://localhost:8000/api/platforms",
+                "http://localhost:8000/api/platforms", // Ont essaye d'envoyer les donnés du formulaire de création de plateforme avec axios
                 platform
             );
             console.log(response);
-        } catch (error) {
+        } catch (error) { // Si ont a une erreur ont l'affiche dans la console
             console.log(error.response.data);
             console.log(platform)
         }
     }
 
-    //déléte platform
+    //Fonction pour supprimer une plateforme
     const handleDeletePlatform = async (id) => {
         try {
             const response = await axios.delete(
@@ -104,7 +106,7 @@ const AddGame = () => {
         }
     }
 
-    //submit type
+    //Fonction pour envoyer les donnés du formulaire de création de type de jeu
     const handleSubmittype = async (e) => {
         e.preventDefault();
         const type = {
@@ -122,7 +124,7 @@ const AddGame = () => {
         }
     }
 
-    //déléte type
+    //Fonction pour supprimer un type de jeu
     const handleDeleteType = async (id) => {
         try {
             const response = await axios.delete(
@@ -138,13 +140,13 @@ const AddGame = () => {
         <div>
             <Link to="/Backoffice">
                 <button className="back-button">
-                    <p><FontAwesomeIcon icon={faArrowLeft} /> Retour </p>
+                    <p><FontAwesomeIcon icon={faArrowLeft} /> Retour </p> <!-- Bouton pour revenir au backoffice -->
                 </button>
             </Link>
             <div className="addall">
             <div className="addgame">
                 <h1>Ajouter un jeu</h1>
-                <form onSubmit={handleSubmitgame}>
+                <form onSubmit={handleSubmitgame}> <!-- Formulaire pour ajouter un jeu -->
                      <div className="form-group">
                         <label htmlFor="name">Nom du jeu</label>
                         <input type="text" name="name" id="name" className="form-control" placeholder="Nom du jeu" required onChange={e => setName(e.target.value)}/>
@@ -208,7 +210,7 @@ const AddGame = () => {
 </div>
                 <div className="addgame">
                     <h1>Ajouter une platforme</h1>
-                    <form onSubmit={handleSubmitplatform}>
+                    <form onSubmit={handleSubmitplatform}><!-- Formulaire pour ajouter une platforme -->
                         <div className="form-group">
                             <label htmlFor="platform">Nom de la platform</label>
                             <input type="text" name="platform" id="platform" className="form-control" placeholder="platform" required onChange={e => setPlatform(e.target.value)}/>
@@ -236,14 +238,14 @@ const AddGame = () => {
                 </div>
                 <div className="addgame">
                     <h1>Ajouter un type de jeux </h1>
-                    <form onSubmit={handleSubmittype}>
+                    <form onSubmit={handleSubmittype}><!-- Formulaire pour ajouter un type de jeux -->
                         <div className="form-group">
                             <label htmlFor="type">type</label>
                             <input type="text" name="type" id="type" className="form-control" placeholder="type de jeux (action)" required onChange={e => setType(e.target.value)}/>
                         </div>
                         <button type="submit" className="btn btn-primary">Ajouter</button>
                     </form>
-                    <table>
+                    <table><!-- Tableau pour afficher les types de jeux -->
                         <thead>
                             <tr>
                                 <th>id</th>

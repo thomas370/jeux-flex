@@ -11,7 +11,7 @@ const Fiches = () => {
     const [added, setAdded] = React.useState(false);
     const navigate = useNavigate();
 
-    useEffect(() => {
+    useEffect(() => {// récupérer les données de l'api pour les afficher sur la page de la fiche du jeu
         const fetchGames = async () => {
             const response = await fetch(`http://localhost:8000/api/jeuxes/${id}`);
             const data = await response.json();
@@ -22,10 +22,10 @@ const Fiches = () => {
 
     const handleAddToCart = () => {
         if(localStorage.getItem("token") === null) {
-            navigate('/LoginUser'); // rediriger l'utilisateur vers la page de connexion
+            navigate('/LoginUser'); //si l'utilisateur n'ai pas connecter rediriger l'utilisateur vers la page de connexion
         } else {
-        const newCart = JSON.parse(localStorage.getItem("cart")) || [];
-        const itemInCart = newCart.find((item) => item.id === game.id);// si l'item est déjà dans le panier
+        const newCart = JSON.parse(localStorage.getItem("cart")) || []; // si le panier est vide on le créer
+        const itemInCart = newCart.find((item) => item.id === game.id);// si l'item est déjà dans le panier on ajoute +1 à la quantité
         if (itemInCart) { 
             itemInCart.quantity++;
         } else {
@@ -35,9 +35,9 @@ const Fiches = () => {
             });
         }
         setCart(newCart);
-        localStorage.setItem("cart", JSON.stringify(newCart));
+        localStorage.setItem("cart", JSON.stringify(newCart)); // on envoie les données dans le localstorage
         console.log(cart);
-        setAdded(true)
+        setAdded(true) // on affiche le message d'ajout au panier
         }
     };
 

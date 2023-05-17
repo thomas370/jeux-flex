@@ -15,15 +15,15 @@ import {
 import jwtDecode from 'jwt-decode';
 
 const Nav = () => {
-    const [navbarOpen, setNavbarOpen] = useState(false)
-    const panier = JSON.parse(localStorage.getItem('cart'))
-    const [Roles, setRoles] = useState(null)
+    const [navbarOpen, setNavbarOpen] = useState(false) // state pour le menu burger
+    const panier = JSON.parse(localStorage.getItem('cart'))  // on récupère le panier dans le localstorage
+    const [Roles, setRoles] = useState(null) // state pour les rôles de l'utilisateur
 
-    const handleToggle = () => {
+    const handleToggle = () => { // fonction pour ouvrir le menu burger
         setNavbarOpen(!navbarOpen)
     }
 
-    useEffect(() => {
+    useEffect(() => { // on récupère les rôles de l'utilisateur
         setRoles(getRoles());
         console.log(getRoles());
     }, []);

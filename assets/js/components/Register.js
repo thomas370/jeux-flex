@@ -15,47 +15,47 @@ const Register = () => {
 
 
   useEffect(() => {
-    setPasswordStrength(calculatePasswordStrength(password));
+    setPasswordStrength(calculatePasswordStrength(password)); // Mise à jour de la force du mot de passe
   }, [password]);
 
 
-  const calculatePasswordStrength = (password) => {
-    const uppercaseRegex = /[A-Z]/;
-    const specialCharRegex = /[!@#$&*]/;
-    const passwordRegex = /[0-9]/;
-    let strength = 0;
+  const calculatePasswordStrength = (password) => { // Fonction pour calculer la force du mot de passe
+    const uppercaseRegex = /[A-Z]/; // Regex pour les majuscules
+    const specialCharRegex = /[!@#$&*]/; // Regex pour les caractères spéciaux
+    const passwordRegex = /[0-9]/; // Regex pour les chiffres
+    let strength = 0; // Force du mot de passe
 
-    if (uppercaseRegex.test(password)) {
+    if (uppercaseRegex.test(password)) { // Si le mot de passe contient des majuscules
       strength += 1;
     }
 
-    if (passwordRegex.test(password)) {
+    if (passwordRegex.test(password)) { // Si le mot de passe contient des chiffres
       strength += 1;
     }
 
-    if (specialCharRegex.test(password)) {
+    if (specialCharRegex.test(password)) { // Si le mot de passe contient des caractères spéciaux
       strength += 1;
     }
 
     return strength;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => { // Fonction pour l'inscription d'un utilisateur
     e.preventDefault();
-    if (password !== passwordConfirm) {
+    if (password !== passwordConfirm) { // Si les deux mots de passe ne correspondent pas
       alert("Les deux mots de passe ne correspondent pas.");
       return;
     }
-    if (passwordStrength < 3) {
+    if (passwordStrength < 3) { // Si le mot de passe n'est pas assez fort
       alert("Le mot de passe n'est pas assez fort.");
       return;
     }
-    const credential = {
+    const credential = { // Création d'un objet avec les données de l'utilisateur
       email,
       password,
     };
     try {
-      const response = await axios.post(
+      const response = await axios.post( // Requête pour l'inscription d'un utilisateur
           "http://localhost:8000/api/users",
           credential
       );
@@ -63,7 +63,7 @@ const Register = () => {
       window.location.href = '/'; // Redirection vers la page d'accueil après inscription réussie
     } catch (error) {
       console.log(error.response.data);
-      setEmailError(error.response.data.violations.map((violation) => violation.message));
+      setEmailError(error.response.data.violations.map((violation) => violation.message)); // Mise à jour du message d'erreur
       setErrorMessage(error.response.data.message); // Mise à jour du message d'erreur
     }
   };
