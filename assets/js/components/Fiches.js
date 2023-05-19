@@ -21,25 +21,24 @@ const Fiches = () => {
     }, [id]);
 
     const handleAddToCart = () => {
-        if(localStorage.getItem("token") === null) {
-            navigate('/LoginUser'); //si l'utilisateur n'ai pas connecter rediriger l'utilisateur vers la page de connexion
+        if (localStorage.getItem("token") === null) {
+            navigate('/LoginUser'); // si l'utilisateur n'est pas connecté, rediriger l'utilisateur vers la page de connexion
         } else {
-        const newCart = JSON.parse(localStorage.getItem("cart")) || []; // si le panier est vide on le créer
-        const itemInCart = newCart.find((item) => item.id === game.id);// si l'item est déjà dans le panier on ajoute +1 à la quantité
-        if (itemInCart) { 
-            itemInCart.quantity++;
-        } else {
-            newCart.push({
-                ...game,
-                quantity: 1,
-            });
+            const newCart = JSON.parse(localStorage.getItem("cart")) || []; // si le panier est vide, on le crée
+            const itemInCart = newCart.find((item) => item.id === game.id); // si l'item est déjà dans le panier, on ajoute +1 à la quantité
+            if (itemInCart) {
+                itemInCart.quantity++;
+            } else {
+                newCart.push({
+                    ...game,
+                    quantity: 1,
+                });
+            }
+            setCart(newCart);
+            localStorage.setItem("cart", JSON.stringify(newCart)); // on envoie les données dans le localstorage
+            console.log(cart);
+            setAdded(true); // on affiche le message d'ajout au panier
         }
-        setCart(newCart);
-        localStorage.setItem("cart", JSON.stringify(newCart)); // on envoie les données dans le localstorage
-        console.log(cart);
-        setAdded(true) // on affiche le message d'ajout au panier
-                }
-            };
     };
 
     return (
@@ -83,7 +82,7 @@ const Fiches = () => {
                 <Footer />
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Fiches
