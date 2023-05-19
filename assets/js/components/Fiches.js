@@ -38,7 +38,8 @@ const Fiches = () => {
         localStorage.setItem("cart", JSON.stringify(newCart)); // on envoie les données dans le localstorage
         console.log(cart);
         setAdded(true) // on affiche le message d'ajout au panier
-        }
+                }
+            };
     };
 
     return (
